@@ -7,20 +7,20 @@
 int main (void)
 {
 	std::string	input;
-	Contact		cont;		
+	phoneBook	obj;	
 
 	std::cout << "Enter one of these commands:" << std::endl;
 	std::cout << "  ADD:    save a new contact" << std::endl;
 	std::cout << "  SEARCH: display a specific contact" << std::endl;
 	std::cout << "  EXIT" << std::endl;
 
-	while (true){
-
+	while (true)
+	{
 		std::getline(std::cin, input);
 
 		if (input == "ADD"){
 			std::cout << "ADD" << std::endl;
-			phoneBook.add_contact(cont);
+			obj.add_contact();
 		}
 		else if (input == "SEARCH")
 			std::cout << "SEARCH" << std::endl;
