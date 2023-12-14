@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 10:57:36 by julolle-          #+#    #+#             */
-/*   Updated: 2023/12/14 11:45:49 by julolle-         ###   ########.fr       */
+/*   Updated: 2023/12/14 17:40:40 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define CONTACT_HPP
 # include <iostream>
 # include <cstring>
+# include <iomanip>
 
 class Contact {
 	
@@ -23,20 +24,20 @@ class Contact {
 		//Destructor		
 		~Contact();
 		
-		void			setFirstName (std::string str);
-		void			setLastName (std::string str);
-		void			setNickname (std::string str);
-		void			setPhonenumber (std::string str);
-		void			setDarkestSecret (std::string str);
-		static void		setNb (int n);
+		void	setFirstName (std::string str);
+		void	setLastName (std::string str);
+		void	setNickname (std::string str);
+		void	setPhonenumber (std::string str);
+		void	setDarkestSecret (std::string str);
+		static void	setNb (int n);
 		static int		getNb ();
-		int				getIndex () const;
-	
-		std::string	getFirstName () const;
-		std::string	getLastName () const;
-		std::string	getNickname () const;
-		std::string	getPhonenumber () const;
-		std::string	getDarkestSecret () const;
+		int		getIndex () const;
+
+		std::string	getFirstName();
+		std::string	getLastName();
+		std::string	getNickname();
+		std::string	getPhonenumber();
+		std::string	getDarkestSecret();
 
 	private:
 		std::string _first_name;
@@ -44,7 +45,7 @@ class Contact {
 		std::string _nickname;
 		std::string _phone_number;
 		std::string _darkest_secret;
-		std::string _num_contact;
+		static int 	_num_contact;
 };
 
 #endif

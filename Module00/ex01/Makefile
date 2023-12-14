@@ -6,16 +6,18 @@
 #    By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/16 15:43:43 by julolle-          #+#    #+#              #
-#    Updated: 2023/11/16 15:43:54 by julolle-         ###   ########.fr        #
+#    Updated: 2023/12/14 12:57:01 by julolle-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		:= phonebook
 
-SRC			:= main.cpp contact.cpp
+SRC			:= main.cpp Contact.cpp PhoneBook.cpp
 
 OBJ			:= $(SRC:.cpp=.o)
 DEP			:= $(SRC:.cpp=.d)
+
+INCLUDE		:= 
 
 CPP			:= g++ -std=c++98
 
@@ -38,10 +40,12 @@ fclean:
 re:	fclean all
 
 $(NAME): $(OBJ) Makefile
-	${CPP} ${CPPFLAGS} ${OBJ} -o ${NAME}
+	${CPP} ${CPPFLAGS} ${OBJ} $(INCLUDE) -o ${NAME}
 	@echo "$(PINK)Phonebook compiled$(DEF_COLOR)"
 
 %.o: %.cpp
 	@$(CPP) $(CPPFLAGS) -c $< -o $@
+
+-include ${DEP}
 
 .PHONY: all clean fclean re

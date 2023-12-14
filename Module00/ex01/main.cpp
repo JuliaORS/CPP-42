@@ -1,33 +1,32 @@
 
-#include <iostream>
-#include <cstring>
-#include "contact.hpp" 
-#include "phoneBook.hpp" 
+#include "PhoneBook.hpp" 
 
 int main (void)
 {
 	std::string	input;
-	phoneBook	obj;	
+	PhoneBook	obj;	
 
-	std::cout << "Enter one of these commands:" << std::endl;
-	std::cout << "  ADD:    save a new contact" << std::endl;
-	std::cout << "  SEARCH: display a specific contact" << std::endl;
-	std::cout << "  EXIT" << std::endl;
 
 	while (true)
 	{
+		std::cout << "Enter one of these commands:" << std::endl;
+		std::cout << "  ADD:    save a new contact" << std::endl;
+		std::cout << "  SEARCH: display a specific contact" << std::endl;
+		std::cout << "  EXIT" << std::endl<< std::endl;
+		std::cout << ">>";
 		std::getline(std::cin, input);
 
-		if (input == "ADD"){
-			std::cout << "ADD" << std::endl;
+		if (input == "ADD")
 			obj.add_contact();
-		}
 		else if (input == "SEARCH")
-			std::cout << "SEARCH" << std::endl;
-		else if (input == "EXIT"){
+			obj.search_contact();
+		else if (input == "EXIT")
+		{
 			std::cout << "bye bye :D" << std::endl;
 			break ;
 		}
+		else
+			std::cout << "It is not a correct input :S" << std::endl<< std::endl;
 	}
 	return (0);
 }
