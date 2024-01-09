@@ -10,10 +10,10 @@ int main (void)
 	while (true)
 	{
 		std::cout << "Enter one of these commands:" << std::endl;
-		std::cout << "  ADD:    save a new contact" << std::endl;
-		std::cout << "  SEARCH: display a specific contact" << std::endl;
+		std::cout << "  ADD (to save a new contact)" << std::endl;
+		std::cout << "  SEARCH (to display a specific contact)" << std::endl;
 		std::cout << "  EXIT" << std::endl<< std::endl;
-		std::cout << ">>";
+		std::cout << ">> ";
 		std::getline(std::cin, input);
 
 		if (input == "ADD")

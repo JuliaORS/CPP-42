@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   contact.hpp                                        :+:      :+:    :+:   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 10:57:36 by julolle-          #+#    #+#             */
-/*   Updated: 2023/12/14 17:40:40 by julolle-         ###   ########.fr       */
+/*   Updated: 2023/12/18 17:36:12 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ class Contact {
 		void	setNickname (std::string str);
 		void	setPhonenumber (std::string str);
 		void	setDarkestSecret (std::string str);
-		static void	setNb (int n);
+		static void		setNb (int n);
 		static int		getNb ();
-		int		getIndex () const;
+		int				getIndex () const;
 
 		std::string	getFirstName();
 		std::string	getLastName();

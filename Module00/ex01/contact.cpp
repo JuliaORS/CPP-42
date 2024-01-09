@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   contact.cpp                                        :+:      :+:    :+:   */
+/*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 15:39:39 by julolle-          #+#    #+#             */
-/*   Updated: 2023/12/14 18:42:22 by julolle-         ###   ########.fr       */
+/*   Updated: 2024/01/09 13:12:50 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,10 @@ void	Contact::setNb(int i)
 
 std::string Contact::getFirstName()
 {
-    return (_first_name);
+	return (_first_name);
 }
 
-void    Contact::setFirstName(std::string str)
+void	Contact::setFirstName(std::string str)
 {
 	this->_first_name = str;
 	return ;
@@ -46,7 +46,7 @@ void    Contact::setFirstName(std::string str)
 
 std::string Contact::getLastName()
 {
-    return (_last_name);
+	return (_last_name);
 }
 
 void    Contact::setLastName(std::string str)
@@ -57,10 +57,10 @@ void    Contact::setLastName(std::string str)
 
 std::string Contact::getNickname()
 {
-    return (_nickname);
+	return (_nickname);
 }
 
-void    Contact::setNickname(std::string str)
+void	Contact::setNickname(std::string str)
 {
 	this->_nickname = str;
 	return ;
@@ -68,10 +68,10 @@ void    Contact::setNickname(std::string str)
 
 std::string Contact::getPhonenumber ()
 {
-    return (_phone_number);
+	return (_phone_number);
 }
 
-void    Contact::setPhonenumber(std::string str)
+void	Contact::setPhonenumber(std::string str)
 {
 	this->_phone_number = str;
 	return ;
@@ -79,10 +79,10 @@ void    Contact::setPhonenumber(std::string str)
 
 std::string Contact::getDarkestSecret ()
 {
-    return (_darkest_secret);
+	return (_darkest_secret);
 }
 
-void    Contact::setDarkestSecret(std::string str)
+void	Contact::setDarkestSecret(std::string str)
 {
 	this->_darkest_secret = str;
 	return ;
