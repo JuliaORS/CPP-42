@@ -10,12 +10,13 @@ class HumanB{
 		HumanB(std::string name);
 		~HumanB();
 
+		std::string getName();
+        void	    setWeapon(Weapon &weapon);
 		void	    attack();
-        void	    setWeapon(Weapon weapon);
     
     private:
 		std::string _name;
-		Weapon      _weaponB;
+		Weapon      *_weaponB;
 };
 
 #endif
