@@ -1,37 +1,15 @@
 
-#include "HumanB.hpp"
-#include "HumanA.hpp"
+#include "Harl.hpp" 
 
-int main(void)
+int main(int ac, char **av)
 {
-	{
-		Weapon gun = Weapon("gun1");
+	Harl harl;
 
-		std::cout << "type of gun is: " << gun.getType() << std::endl << std::endl;
-		
-		gun.setType("gun2");
-		std::cout << "new type of gun is: " << gun.getType() << std::endl << std::endl;
+	if (ac == 2){
+		harl.complain(av[1]);
 
-
-		HumanA ju("Ju", gun);
-		ju.attack();
 	}
-	{
-		Weapon club = Weapon("crude spiked club");
-
-		HumanA bob("Bob", club);
-		bob.attack();
-		club.setType("some other type of club"); 
-		bob.attack();
-	} 
-	{
-		Weapon club = Weapon("crude spiked club");
-
-		HumanB jim("Jim");
-		jim.setWeapon(club);
-		jim.attack();
-		club.setType("some other type of club"); 
-		jim.attack();
-	}
+	else
+		std::cout << "Enter a correct order: DEBUG, INFO, WARNING or ERROR" << std::endl;
 	return (0);
 }

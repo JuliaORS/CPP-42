@@ -1,8 +1,8 @@
 
 
-NAME		:= unnecessaryViolence
+NAME		:= harl
 
-SRC			:= main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
+SRC			:= main.cpp Harl.cpp
 
 OBJ			:= $(SRC:.cpp=.o)
 DEP			:= $(SRC:.cpp=.d)
@@ -25,13 +25,13 @@ clean:
 fclean: 
 	$(RM) $(OBJ) $(DEP) > /dev/null
 	$(RM) $(NAME) > /dev/null
-	@echo "$(PINK)Unnecessary violence removed$(DEF_COLOR)"
+	@echo "$(PINK)Harl removed$(DEF_COLOR)"
 
 re:	fclean all
 
 $(NAME): $(OBJ) Makefile
 	${CPP} ${CPPFLAGS} ${OBJ} $(INCLUDE) -o ${NAME}
-	@echo "$(PINK)Unnecessary violence compiled$(DEF_COLOR)"
+	@echo "$(PINK)Harl compiled$(DEF_COLOR)"
 
 %.o: %.cpp
 	@$(CPP) $(CPPFLAGS) -c $< -o $@
