@@ -10,16 +10,17 @@ class Fixed{
 	
 	public: 
 		Fixed();
-		Fixed(const Fixed&);
+		Fixed(Fixed const & src);
 		~Fixed();
 
-		void	complain(std::string level);
+		Fixed & operator=(Fixed const & rhs);
+
+		int		getRawBits() const;
+		void	setRawBits(int const raw);
 
 	private:
-		void _debug();
-		void _info();
-		void _warning();
-		void _error();
+		int	_nb;
+		static int const _bits = 8;
 
 };
 

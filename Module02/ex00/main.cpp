@@ -1,15 +1,14 @@
 
-#include "Harl.hpp" 
+#include "Fixed.hpp" 
 
-int main(int ac, char **av)
+int main()
 {
-	Harl harl;
+	Fixed a;
+	Fixed b(a);
+	Fixed c;
+	c = b;
 
-	if (ac == 2){
-		harl.complain(av[1]);
+	std::cout << a.getRawBits() << std::endl; std::cout << b.getRawBits() << std::endl; std::cout << c.getRawBits() << std::endl;
 
-	}
-	else
-		std::cout << "Enter a correct order: DEBUG, INFO, WARNING or ERROR" << std::endl;
-	return (0);
+	return 0;
 }

@@ -1,8 +1,8 @@
 
 
-NAME		:= harl
+NAME		:= fixed
 
-SRC			:= main.cpp Harl.cpp
+SRC			:= main.cpp Fixed.cpp
 
 OBJ			:= $(SRC:.cpp=.o)
 DEP			:= $(SRC:.cpp=.d)
@@ -25,13 +25,13 @@ clean:
 fclean: 
 	$(RM) $(OBJ) $(DEP) > /dev/null
 	$(RM) $(NAME) > /dev/null
-	@echo "$(PINK)Harl removed$(DEF_COLOR)"
+	@echo "$(PINK)Fixed removed$(DEF_COLOR)"
 
 re:	fclean all
 
 $(NAME): $(OBJ) Makefile
 	${CPP} ${CPPFLAGS} ${OBJ} $(INCLUDE) -o ${NAME}
-	@echo "$(PINK)Harl compiled$(DEF_COLOR)"
+	@echo "$(PINK)Fixed compiled$(DEF_COLOR)"
 
 %.o: %.cpp
 	@$(CPP) $(CPPFLAGS) -c $< -o $@
