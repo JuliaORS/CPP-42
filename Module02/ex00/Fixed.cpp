@@ -6,7 +6,7 @@ Fixed::Fixed(){
 	this->_nb = 0;
 }
 
-//constructor de copia
+//copy constructor
 Fixed::Fixed(Fixed const & src){
 	std::cout << "Copy constructor called" << std::endl;
 	*this = src;
@@ -16,7 +16,7 @@ Fixed::~Fixed(){
 	std::cout << "Destructor called" << std::endl;
 }
 
-//operador
+//operador "="
 Fixed& Fixed::operator=(Fixed const & raw) {
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &raw) {
