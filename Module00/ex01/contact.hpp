@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 10:57:36 by julolle-          #+#    #+#             */
-/*   Updated: 2024/01/22 16:34:24 by julolle-         ###   ########.fr       */
+/*   Updated: 2024/01/22 20:18:02 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ class Contact {
 		void			setNickname (std::string str);
 		void			setPhonenumber (std::string str);
 		void			setDarkestSecret (std::string str);
+
 		static void		setNb (int n);
 		static int		getNb ();
 
@@ -37,7 +38,7 @@ class Contact {
 		std::string	getDarkestSecret();
 
 	private:
-		std::string _first_name;
+		std::string _first_name;;
 		std::string _last_name;
 		std::string _nickname;
 		std::string _phone_number;

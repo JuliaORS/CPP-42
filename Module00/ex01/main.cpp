@@ -6,18 +6,19 @@ int main (void)
 	std::string	input;
 	PhoneBook	obj;	
 
+	std::cout << "Enter one of these commands:" << std::endl;
+	std::cout << "  ADD (to save a new contact)" << std::endl;
+	std::cout << "  SEARCH (to display a specific contact)" << std::endl;
+	std::cout << "  EXIT" << std::endl<< std::endl;
 
 	while (true)
 	{
-		std::cout << "Enter one of these commands:" << std::endl;
-		std::cout << "  ADD (to save a new contact)" << std::endl;
-		std::cout << "  SEARCH (to display a specific contact)" << std::endl;
-		std::cout << "  EXIT" << std::endl<< std::endl;
 		std::cout << ">> ";
-		std::getline(std::cin, input);
-
+		if (!std::getline(std::cin, input))
+			return (1);
 		if (input == "ADD")
 			obj.add_contact();
+		
 		else if (input == "SEARCH")
 			obj.search_contact();
 		else if (input == "EXIT"){

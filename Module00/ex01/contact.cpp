@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 15:39:39 by julolle-          #+#    #+#             */
-/*   Updated: 2024/01/22 16:08:18 by julolle-         ###   ########.fr       */
+/*   Updated: 2024/01/22 20:17:42 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ int Contact::getNb(){
 void	Contact::setNb(int i){
 	Contact::_nContact = i;
 }
-
 
 std::string Contact::getFirstName(){
 	return (_first_name);
