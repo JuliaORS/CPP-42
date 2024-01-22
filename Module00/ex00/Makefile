@@ -13,7 +13,7 @@ CPPFLAGS	:= -Wall -Wextra -Werror -MMD
 RM			:= @rm -fv
 
 
-all:	$(NAME)
+all:	$(NAME) 
 
 clean:
 	$(RM) $(OBJ) $(DEP) > /dev/null
@@ -26,7 +26,7 @@ fclean:
 
 re:	fclean all
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJ) Makefile
 	${CPP} ${CPPFLAGS} ${OBJ} -o ${NAME}
 	@echo "$(PINK)Megaphone compiled$(DEF_COLOR)"
 

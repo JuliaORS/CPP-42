@@ -20,8 +20,7 @@ int main (void)
 			obj.add_contact();
 		else if (input == "SEARCH")
 			obj.search_contact();
-		else if (input == "EXIT")
-		{
+		else if (input == "EXIT"){
 			std::cout << "bye bye :D" << std::endl;
 			break ;
 		}
