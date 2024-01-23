@@ -6,11 +6,11 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 18:19:49 by julolle-          #+#    #+#             */
-/*   Updated: 2024/01/23 12:36:25 by julolle-         ###   ########.fr       */
+/*   Updated: 2024/01/23 15:28:17 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "PhoneBook.hpp" 
+# include "phoneBook.hpp" 
 
 PhoneBook::PhoneBook(){
 	this->_lastIx = -1;
@@ -30,6 +30,8 @@ std::string	askInput(std::string info)
 	while (input == "" || std::isspace(input[0])){
 		std::cout << "Write a correct input." << std::endl;
 		std::cout << info << ": ";
+		if (!std::getline(std::cin, input))
+			return ("");
 	}
 	
 	return (input);
@@ -69,16 +71,15 @@ int	PhoneBook::saveContact(int nB){
 }
 
 void	PhoneBook::addContact(){
-	Contact     *pb;
 	std::string	input;
-
+	
+	
 	if (this->_lastIx == 7){
 		this->_lastIx = 0;
 	}
 	else
 		this->_lastIx = this->_lastIx + 1;
 	Contact::setNb(this->_lastIx);
-	pb = &this->_contact[Contact::getNb()];
 	if (this->saveContact(this->_lastIx))
 		return ;
 

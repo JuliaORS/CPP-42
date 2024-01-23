@@ -6,13 +6,13 @@
 #    By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/16 15:43:43 by julolle-          #+#    #+#              #
-#    Updated: 2023/12/14 12:57:01 by julolle-         ###   ########.fr        #
+#    Updated: 2024/01/23 15:24:50 by julolle-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		:= phonebook
 
-SRC			:= main.cpp Contact.cpp PhoneBook.cpp
+SRC			:= main.cpp Contact.cpp phoneBook.cpp
 
 OBJ			:= $(SRC:.cpp=.o)
 DEP			:= $(SRC:.cpp=.d)
