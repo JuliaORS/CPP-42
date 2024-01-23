@@ -5,40 +5,33 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/23 19:54:02 by julolle-          #+#    #+#             */
-/*   Updated: 2024/01/23 19:54:02 by julolle-         ###   ########.fr       */
+/*   Created: 2024/01/23 19:54:35 by julolle-          #+#    #+#             */
+/*   Updated: 2024/01/23 19:54:35 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
-#include "ScavTrap.hpp" 
+#include "ScavTrap.hpp"
+#include "FragTrap.hpp" 
 
 int main( ) {
 
-	ClapTrap Julia("Julia");
-	ScavTrap Pepe("Pepe");
+	ClapTrap Julia("JuliaClap");
+	ScavTrap Pepe("PepeScav");
+	FragTrap Teo("TeoFrag");
 
-	ScavTrap Teo("Teo");
+	Teo.attack("Miami");
+	Teo.takeDamage(50);
+	Teo.beRepaired(30);
+	Teo.highFivesGuys();
 
-	Pepe.attack("Miami");
-	Teo.takeDamage(5);
-	Pepe.beRepaired(3);
-
-	Teo.guardGate();
-
-	Pepe.beRepaired(3);
-
-	Pepe.beRepaired(5);
-	Pepe.attack("Miami");
-	Pepe.attack("Miami");
-	Pepe.attack("Miami");
+	Pepe.guardGate();
+	Pepe.beRepaired(10);
 	Pepe.attack("Miami");
 
-	Teo.takeDamage(5);
-	Teo.takeDamage(10);
-	Teo.takeDamage(7);
+	Teo.takeDamage(150);
+	Pepe.takeDamage(150);
 
-
-
+	Teo.takeDamage(150);
+	
 	return (0);
 }

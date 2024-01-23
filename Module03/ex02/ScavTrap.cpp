@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 18:03:50 by julolle-          #+#    #+#             */
-/*   Updated: 2024/01/23 12:21:54 by julolle-         ###   ########.fr       */
+/*   Updated: 2024/01/23 12:49:20 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,6 @@ ScavTrap & ScavTrap::operator=(ScavTrap const & src) {
 }
 
 void ScavTrap::guardGate(){
-	std::cout << "ScavpTrap " << this->_name << " is in Gate keeper mode.";
+	std::cout << this->_name << " is in Gate keeper mode.";
 	std::cout << std::endl << std::endl;
 }
