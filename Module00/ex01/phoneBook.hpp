@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 12:00:16 by julolle-          #+#    #+#             */
-/*   Updated: 2024/01/22 20:27:57 by julolle-         ###   ########.fr       */
+/*   Updated: 2024/01/23 12:35:18 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ class PhoneBook{
 		PhoneBook();
 		~PhoneBook();
 
-		void	add_contact();
-		void	search_contact();
-		void	show_contacts();
-		int		save_contact(int nB);
+		void	addContact();
+		void	searchContact();
+		void	showContact();
+		int		saveContact(int nB);
 
 
 	private:

@@ -17,10 +17,10 @@ int main (void)
 		if (!std::getline(std::cin, input))
 			return (1);
 		if (input == "ADD")
-			obj.add_contact();
+			obj.addContact();
 		
 		else if (input == "SEARCH")
-			obj.search_contact();
+			obj.searchContact();
 		else if (input == "EXIT"){
 			std::cout << "bye bye :D" << std::endl;
 			break ;

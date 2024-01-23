@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 18:19:49 by julolle-          #+#    #+#             */
-/*   Updated: 2024/01/22 20:28:56 by julolle-         ###   ########.fr       */
+/*   Updated: 2024/01/23 12:36:25 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ PhoneBook::PhoneBook(){
 PhoneBook::~PhoneBook(){
 }
 
-std::string	ask_input(std::string info)
+std::string	askInput(std::string info)
 {
 	std::string	input;
 	
@@ -35,32 +35,32 @@ std::string	ask_input(std::string info)
 	return (input);
 }
 
-int	PhoneBook::save_contact(int nB){
+int	PhoneBook::saveContact(int nB){
 	Contact     *pb;
 	std::string	input;
 	pb = &this->_contact[nB];
 
-	input = ask_input("First Name");
+	input = askInput("First Name");
 	if (input != "")
 		pb->setFirstName(input);
 	else
 		return (1);
-	input = ask_input("Last Name");
+	input = askInput("Last Name");
 	if (input != "")
 		pb->setLastName(input);
 	else
 		return (1);
-	input = ask_input("Nickname");
+	input = askInput("Nickname");
 	if (input != "")
 		pb->setNickname(input);
 	else
 		return (1);
-	input = ask_input("Phone Number");
+	input = askInput("Phone Number");
 	if (input != "")
 		pb->setPhonenumber(input);
 	else
 		return (1);
-	input = ask_input("Darkest Secret");
+	input = askInput("Darkest Secret");
 	if (input != "")
 		pb->setDarkestSecret(input);
 	else
@@ -68,7 +68,7 @@ int	PhoneBook::save_contact(int nB){
 	return (0);
 }
 
-void	PhoneBook::add_contact(){
+void	PhoneBook::addContact(){
 	Contact     *pb;
 	std::string	input;
 
@@ -79,7 +79,7 @@ void	PhoneBook::add_contact(){
 		this->_lastIx = this->_lastIx + 1;
 	Contact::setNb(this->_lastIx);
 	pb = &this->_contact[Contact::getNb()];
-	if (this->save_contact(this->_lastIx))
+	if (this->saveContact(this->_lastIx))
 		return ;
 
 	std::cout << "New contact saved!" << std::endl<< std::endl;
@@ -88,7 +88,7 @@ void	PhoneBook::add_contact(){
 	return ;
 }
 
-void PhoneBook::show_contacts(){
+void PhoneBook::showContact(){
 
 	std::cout << std::setw(10) << "Index" << "|" << std::setw(10) << \
 		"First Name"  << "|" << std::setw(10) << "Last Name"  << "|" << \
@@ -114,7 +114,7 @@ void PhoneBook::show_contacts(){
 	}
 }
 
-void PhoneBook::search_contact(){
+void PhoneBook::searchContact(){
 	std::string	input;
 	int 		index = 0;
 
@@ -123,7 +123,7 @@ void PhoneBook::search_contact(){
 		return ;
 	}
 
-	this->show_contacts();
+	this->showContact();
 	std::cout << "Enter the index that you want to display" << std::endl;
 	std::cout << ">> ";
 	if (!std::getline(std::cin, input))
