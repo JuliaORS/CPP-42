@@ -43,8 +43,10 @@ int main(int ac, char **av){
 			std::cout << "Invalid file" << std::endl;
 			return (1);
 		}
+	
 		std::string newFileName = std::string(av[1]) + ".replace";
-		std::ofstream newFile(newFileName);
+
+		std::ofstream newFile(newFileName.c_str());
 		if (!newFile.is_open()){
 			std::cout << "New file has an error" << std::endl;
 			return (1);
