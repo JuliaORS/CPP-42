@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 19:53:29 by julolle-          #+#    #+#             */
-/*   Updated: 2024/01/23 19:53:31 by julolle-         ###   ########.fr       */
+/*   Updated: 2024/01/24 11:49:13 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <iostream>
 # include <cstring>
 # include <iomanip>
+# include <cmath>
 
 class Fixed{
 	
