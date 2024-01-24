@@ -14,38 +14,37 @@ NAME		:= diamond
 
 SRC			:= main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp 
 
-OBJ			:= $(SRC:.cpp=.o)
-DEP			:= $(SRC:.cpp=.d)
-
-INCLUDE		:= 
+OBJ_PATH	:= objs/
+OBJ			= $(addprefix $(OBJ_PATH), $(SRC:.cpp=.o))
+DEP			= $(addprefix $(OBJ_PATH), $(SRC:.cpp=.d))
 
 CPP			:= g++ -std=c++98
 
-CPPFLAGS	:= -Wall -Wextra -Werror -MMD
+CPPFLAGS	:= -Wall -Wextra -Werror -MMD -Wshadow -Wno-shadow
 
-RM			:= @rm -fv
+RM			:= @rm -rf
 
 
 all:	$(NAME)
 
-clean:
-	$(RM) $(OBJ) $(DEP) > /dev/null
-	@echo "$(PINK)Objects removed$(DEF_COLOR)"
-
-fclean: 
-	$(RM) $(OBJ) $(DEP) > /dev/null
-	$(RM) $(NAME) > /dev/null
-	@echo "$(PINK) Diamond removed$(DEF_COLOR)"
-
-re:	fclean all
-
-$(NAME): $(OBJ) Makefile
-	${CPP} ${CPPFLAGS} ${OBJ} $(INCLUDE) -o ${NAME}
+$(NAME): $(OBJ) 
+	${CPP} ${CPPFLAGS} ${OBJ} -o ${NAME}
 	@echo "$(PINK)Diamond compiled$(DEF_COLOR)"
 
-%.o: %.cpp
-	@$(CPP) $(CPPFLAGS) -c $< -o $@
+-include $(DEP)
 
--include ${DEP}
+$(OBJ_PATH)%.o:	%.cpp Makefile
+	@mkdir -p $(dir $@)
+	$(CPP) $(CPPFLAGS) $(INCLUDE) -c $< -o $@
+
+clean:
+	$(RM) $(OBJ_PATH) > /dev/null
+	@echo "$(PINK)Objects removed$(DEF_COLOR)"
+
+fclean: clean
+	$(RM) $(NAME) > /dev/null
+	@echo "$(PINK)Diamond removed$(DEF_COLOR)"
+
+re:	fclean all
 
 .PHONY: all clean fclean re

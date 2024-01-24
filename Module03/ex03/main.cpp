@@ -16,23 +16,8 @@
 
 int main( ) {
 
-	ClapTrap Julia("JuliaClap");
-	ScavTrap Pepe("PepeScav");
-	FragTrap Teo("TeoFrag");
+	DiamondTrap Julia("Julia");
 
-	Teo.attack("Miami");
-	Teo.takeDamage(50);
-	Teo.beRepaired(30);
-	Teo.highFivesGuys();
-
-	Pepe.guardGate();
-	Pepe.beRepaired(10);
-	Pepe.attack("Miami");
-
-	Teo.takeDamage(150);
-	Pepe.takeDamage(150);
-
-	Teo.takeDamage(150);
 	
 	return (0);
 }
