@@ -17,8 +17,18 @@
 int main( ) {
 
 	DiamondTrap Julia("Julia");
-	DiamondTrap Ju("ju");
-	Ju = Julia;
+	
+	Julia.takeDamage(50);
+
+	DiamondTrap David("David");
+	
+	std::cout << "David name is " << David.getName() << std::endl;
+	David = Julia;
+	std::cout << "David name is " << David.getName() << std::endl;
+
+	//DiamondTrap Julia("Julia");
+	//DiamondTrap Ju("ju");
+	//Ju = Julia;
 
 	//DiamondTrap Julia("Julia");
 	

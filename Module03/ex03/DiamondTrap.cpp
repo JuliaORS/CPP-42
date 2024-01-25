@@ -6,11 +6,19 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 18:03:50 by julolle-          #+#    #+#             */
-/*   Updated: 2024/01/25 17:26:41 by julolle-         ###   ########.fr       */
+/*   Updated: 2024/01/25 19:49:23 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp" 
+
+DiamondTrap::DiamondTrap() : ClapTrap("undefined_clap_name"), ScavTrap(), FragTrap() {
+	this->_name = "undefined";
+	std::cout << "DiamondTrap default construcor called: " << this->_name << std::endl;
+	this->_hitPoints = this->FragTrap::_hitPoints;
+	this->_energyPoints = this->ScavTrap::_energyPoints;
+	this->_attackDamage = this->FragTrap::_attackDamage;
+}
 
 DiamondTrap::DiamondTrap(std::string name) :  ClapTrap(name + "_clap_name"), ScavTrap(name), FragTrap(name) {
 	this->_name = name;
@@ -29,20 +37,20 @@ DiamondTrap::DiamondTrap(DiamondTrap const & src) : ClapTrap(src.getName() + "_c
 DiamondTrap::~DiamondTrap(){
 	std::cout << "Diamondtrap Destructor called: " << this->_name << std::endl;
 }
-/*
+
 //operator "="
 DiamondTrap & DiamondTrap::operator=(DiamondTrap const & src) {
 	std::cout << "DiamondTrap copy assignment operator called: " << this->_name << std::endl;
 	if (this != &src) {
 		this->_name = src.getName();
-		this->_hitPoints = src.getHP();
-		this->_energyPoints = src.getEP();
-		this->_attackDamage = src.getAD();
+		this->_hitPoints = src.FragTrap::_hitPoints;
+		this->_energyPoints = src.FragTrap::_energyPoints;
+		this->_attackDamage = src.FragTrap::_attackDamage;
 	}
 	return (*this);
 }
 
-void DiamondTrap::whoAmI(){
+/*void DiamondTrap::whoAmI(){
 	std::cout << this->_name << " is in Gate keeper mode.";
 	std::cout << std::endl << std::endl;
 }

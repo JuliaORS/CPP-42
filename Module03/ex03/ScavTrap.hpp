@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 19:55:43 by julolle-          #+#    #+#             */
-/*   Updated: 2024/01/25 17:01:00 by julolle-         ###   ########.fr       */
+/*   Updated: 2024/01/25 19:36:22 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 class ScavTrap : virtual public ClapTrap{
 	
 	public: 
+		ScavTrap();	
 		ScavTrap(std::string name);
 		ScavTrap(ScavTrap const & src);
 		~ScavTrap();

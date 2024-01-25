@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 19:55:14 by julolle-          #+#    #+#             */
-/*   Updated: 2024/01/25 17:00:52 by julolle-         ###   ########.fr       */
+/*   Updated: 2024/01/25 19:35:54 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@
 
 class FragTrap : virtual public ClapTrap{
 	
-	public: 
+	public:
+		FragTrap();
 		FragTrap(std::string name);
 		FragTrap(FragTrap const & src);
 		~FragTrap();

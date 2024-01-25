@@ -6,11 +6,18 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 18:03:50 by julolle-          #+#    #+#             */
-/*   Updated: 2024/01/23 12:49:20 by julolle-         ###   ########.fr       */
+/*   Updated: 2024/01/25 19:36:11 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp" 
+
+ScavTrap::ScavTrap() : ClapTrap(){
+	std::cout << "ScavTrap default construcor called: " << this->_name << std::endl;
+	this->_hitPoints = 100;
+	this->_energyPoints = 50;
+	this->_attackDamage = 20;
+}
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name){
 	std::cout << "ScavTrap construcor called: " << this->_name << std::endl;
