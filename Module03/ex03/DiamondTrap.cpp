@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 18:03:50 by julolle-          #+#    #+#             */
-/*   Updated: 2024/01/25 19:49:23 by julolle-         ###   ########.fr       */
+/*   Updated: 2024/01/25 20:56:56 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,12 @@ DiamondTrap & DiamondTrap::operator=(DiamondTrap const & src) {
 	return (*this);
 }
 
-/*void DiamondTrap::whoAmI(){
-	std::cout << this->_name << " is in Gate keeper mode.";
-	std::cout << std::endl << std::endl;
+//GETTERS
+std::string	DiamondTrap::getName() const {
+	return(_name);
 }
-*/
+
+void DiamondTrap::whoAmI(){
+	std::cout << "WHO AM I - DiamondTrap name is: " << this->_name << std::endl;
+	std::cout << "WHO AM I - ClapTrap name is: " << this->ClapTrap::_name << std::endl;
+}

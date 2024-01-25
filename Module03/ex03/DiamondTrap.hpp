@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 19:55:08 by julolle-          #+#    #+#             */
-/*   Updated: 2024/01/25 19:48:14 by julolle-         ###   ########.fr       */
+/*   Updated: 2024/01/25 20:54:28 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,9 @@ class DiamondTrap : public ScavTrap, public FragTrap {
 
 		DiamondTrap & operator=(DiamondTrap const & src);
 
-		//void whoAmI();
+		std::string getName() const;
+		
+		void whoAmI();
 
 	private:
 		std::string _name;
