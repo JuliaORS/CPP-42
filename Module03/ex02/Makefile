@@ -10,42 +10,41 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME		:= clapscavfragtrap
+NAME		:= fragtrap
 
-SRC			:= main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp 
+SRC			:= main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
 
-OBJ			:= $(SRC:.cpp=.o)
-DEP			:= $(SRC:.cpp=.d)
-
-INCLUDE		:= 
+OBJ_PATH	:= objs/
+OBJ			= $(addprefix $(OBJ_PATH), $(SRC:.cpp=.o))
+DEP			= $(addprefix $(OBJ_PATH), $(SRC:.cpp=.d))
 
 CPP			:= g++ -std=c++98
 
-CPPFLAGS	:= -Wall -Wextra -Werror -MMD
+CPPFLAGS	:= -Wall -Wextra -Werror -MMD -Wshadow -Wno-shadow
 
-RM			:= @rm -fv
+RM			:= @rm -rf
 
 
 all:	$(NAME)
 
+$(NAME): $(OBJ) 
+	${CPP} ${CPPFLAGS} ${OBJ} ${INCLUDE} -o ${NAME}
+	@echo "$(PINK)Fragtrap compiled$(DEF_COLOR)"
+
+-include $(DEP)
+
+$(OBJ_PATH)%.o:	%.cpp Makefile
+	@mkdir -p $(dir $@)
+	$(CPP) $(CPPFLAGS) $(INCLUDE) -c $< -o $@
+
 clean:
-	$(RM) $(OBJ) $(DEP) > /dev/null
+	$(RM) $(OBJ_PATH) > /dev/null
 	@echo "$(PINK)Objects removed$(DEF_COLOR)"
 
-fclean: 
-	$(RM) $(OBJ) $(DEP) > /dev/null
+fclean: clean
 	$(RM) $(NAME) > /dev/null
-	@echo "$(PINK) FragTrap removed$(DEF_COLOR)"
+	@echo "$(PINK)Fragtrap removed$(DEF_COLOR)"
 
 re:	fclean all
-
-$(NAME): $(OBJ) Makefile
-	${CPP} ${CPPFLAGS} ${OBJ} $(INCLUDE) -o ${NAME}
-	@echo "$(PINK)FragTrap compiled$(DEF_COLOR)"
-
-%.o: %.cpp
-	@$(CPP) $(CPPFLAGS) -c $< -o $@
-
--include ${DEP}
 
 .PHONY: all clean fclean re

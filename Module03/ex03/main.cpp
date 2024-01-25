@@ -17,7 +17,10 @@
 int main( ) {
 
 	DiamondTrap Julia("Julia");
+	DiamondTrap Ju("ju");
+	Ju = Julia;
 
+	//DiamondTrap Julia("Julia");
 	
 	return (0);
 }

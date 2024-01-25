@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 19:55:14 by julolle-          #+#    #+#             */
-/*   Updated: 2024/01/23 19:55:16 by julolle-         ###   ########.fr       */
+/*   Updated: 2024/01/25 17:00:52 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <iomanip>
 # include "ClapTrap.hpp"
 
-class FragTrap : public ClapTrap{
+class FragTrap : virtual public ClapTrap{
 	
 	public: 
 		FragTrap(std::string name);

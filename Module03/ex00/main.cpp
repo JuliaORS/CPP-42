@@ -14,6 +14,7 @@
 
 int main( ){
 
+	ClapTrap Empty;
 	ClapTrap Julia("Julia");
 	ClapTrap Ferran("Ferran");
 

@@ -6,14 +6,14 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 18:03:50 by julolle-          #+#    #+#             */
-/*   Updated: 2024/01/23 12:49:15 by julolle-         ###   ########.fr       */
+/*   Updated: 2024/01/25 17:29:38 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp" 
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name){
-	std::cout << "ScavTrap construcor called: " << this->_name << std::endl;
+	std::cout << "FragTrap construcor called: " << this->_name << std::endl;
 	this->_hitPoints = 100;
 	this->_energyPoints = 100;
 	this->_attackDamage = 30;

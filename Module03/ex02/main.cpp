@@ -15,6 +15,7 @@
 
 int main( ) {
 
+	FragTrap Empty;
 	ClapTrap Julia("JuliaClap");
 	ScavTrap Pepe("PepeScav");
 	FragTrap Teo("TeoFrag");

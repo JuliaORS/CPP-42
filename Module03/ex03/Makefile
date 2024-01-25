@@ -28,7 +28,7 @@ RM			:= @rm -rf
 all:	$(NAME)
 
 $(NAME): $(OBJ) 
-	${CPP} ${CPPFLAGS} ${OBJ} -o ${NAME}
+	${CPP} ${CPPFLAGS} ${OBJ} ${INCLUDE} -o ${NAME}
 	@echo "$(PINK)Diamond compiled$(DEF_COLOR)"
 
 -include $(DEP)

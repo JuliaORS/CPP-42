@@ -17,6 +17,7 @@ int main( ) {
 
 	ClapTrap Julia("Julia");
 	ScavTrap Pepe("Pepe");
+	ScavTrap Empty;
 
 	ScavTrap Teo("Teo");
 

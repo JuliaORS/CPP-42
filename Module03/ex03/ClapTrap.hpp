@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 19:54:54 by julolle-          #+#    #+#             */
-/*   Updated: 2024/01/23 19:54:56 by julolle-         ###   ########.fr       */
+/*   Updated: 2024/01/25 19:13:58 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 class ClapTrap{
 	
 	public: 
+		ClapTrap();
 		ClapTrap(std::string name);
 		ClapTrap(ClapTrap const & src);
 		~ClapTrap();

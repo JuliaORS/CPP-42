@@ -6,27 +6,26 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 18:03:50 by julolle-          #+#    #+#             */
-/*   Updated: 2024/01/24 16:21:06 by julolle-         ###   ########.fr       */
+/*   Updated: 2024/01/25 17:26:41 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp" 
 
-DiamondTrap::DiamondTrap(std::string name) : ScavTrap(name), FragTrap(name){
+DiamondTrap::DiamondTrap(std::string name) :  ClapTrap(name + "_clap_name"), ScavTrap(name), FragTrap(name) {
 	this->_name = name;
 	std::cout << "DiamondTrap construcor called: " << this->_name << std::endl;
-	//this->_hitPoints = this->FragTrap::_hitPoints;
-
-	//this->_energyPoints = 50;
-	//this->_attackDamage = 20;
+	this->_hitPoints = this->FragTrap::_hitPoints;
+	this->_energyPoints = this->ScavTrap::_energyPoints;
+	this->_attackDamage = this->FragTrap::_attackDamage;
 }
-/*
+
 //copy constructor
-DiamondTrap::DiamondTrap(DiamondTrap const & src) : ClapTrap(src){
+DiamondTrap::DiamondTrap(DiamondTrap const & src) : ClapTrap(src.getName() + "_clap_name"), ScavTrap(src.getName()), FragTrap(src.getName()){
 	std::cout << "DiamondTrap copy construcor called: " << this->_name << std::endl;
 	*this = src;
 }
-*/
+
 DiamondTrap::~DiamondTrap(){
 	std::cout << "Diamondtrap Destructor called: " << this->_name << std::endl;
 }
