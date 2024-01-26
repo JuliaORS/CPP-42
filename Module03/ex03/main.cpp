@@ -16,7 +16,7 @@
 
 int main( ) {
 
-	DiamondTrap Julia("Julia");
+	DiamondTrap Julia(NULL);
 	
 	Julia.takeDamage(50);
 	Julia.beRepaired(10);

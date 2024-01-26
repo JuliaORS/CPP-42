@@ -14,11 +14,17 @@
 
 int main( ){
 
-	ClapTrap Empty;
-	ClapTrap Julia("Julia");
-	ClapTrap Ferran("Ferran");
+	//ClapTrap Empty;
+	//ClapTrap Julia("Julia");
+	//std::cout << "ClapTrap construcor called: "  << std::endl;
+	//int n = 22222222222222222222222222222222;
+	//int x = "sgegsrgrsgr";	
+	//std::string algo (NULL);
+	//(void) algo;
+	ClapTrap Pepe(NULL);
+	//ClapTrap Ferran("Ferran");
 
-	Julia.attack("Barcelona");
+/*	Julia.attack("Barcelona");
 
 	Julia.beRepaired(3);
 	Julia.attack("Sevilla");
@@ -38,6 +44,6 @@ int main( ){
 	Ferran.beRepaired(1);
 	Ferran.beRepaired(1);
 	Ferran.beRepaired(1);
-	Ferran.beRepaired(1);
+	Ferran.beRepaired(1);*/
 	return (0);
 }
