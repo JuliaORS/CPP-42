@@ -16,26 +16,42 @@
 
 int main( ) {
 
-	DiamondTrap Julia(NULL);
-	
-	Julia.takeDamage(50);
-	Julia.beRepaired(10);
+	std::cout << "---- Diamond Constructor ----" << std::endl<< std::endl;
 
-	DiamondTrap David("David");
+	DiamondTrap Julia("Julia");
 	
-	std::cout << "David name is " << David.getName() << std::endl;
-	David = Julia;
-	std::cout << "David hit points: " << David.getHP() << std::endl;
-	std::cout << "David energy points: " << David.getEP() << std::endl;
-	std::cout << "David attack damage: " << David.getAD() << std::endl;
+	std::cout << "---- Diamond actions ----" << std::endl<< std::endl;
 
 	Julia.whoAmI();
-	
-	//DiamondTrap Julia("Julia");
-	//DiamondTrap Ju("ju");
-	//Ju = Julia;
+	Julia.takeDamage(50);
+	Julia.beRepaired(10);
+	Julia.attack("Sevilla");
+	Julia.takeDamage(120);
+	Julia.attack("Marte");
 
-	//DiamondTrap Julia("Julia");
+
+	std::cout << "---- New constructor ----" << std::endl<< std::endl;
+
+	DiamondTrap David("David");
+
+	std::cout << "---- = operator ----" << std::endl<< std::endl;
+
+	David = Julia;
+	std::cout << David.getName() << " has " << David.getEP() << " energy points" << std::endl;
+	std::cout << David.getName() << " has " << David.getHP() << " hit points" << std::endl<< std::endl;
+
+	std::cout << "---- Copy assignment ----" << std::endl<< std::endl;
+
+	DiamondTrap Pepe(David);
+	std::cout << Pepe.getName() << " has " << Pepe.getEP() << "energy points" << std::endl;
+	std::cout << Pepe.getName() << " has " << Pepe.getHP() << "hit points" << std::endl<< std::endl;
+
+	std::cout << "---- Constructor with pointer ----" << std::endl<< std::endl;
+
+	ClapTrap* ptr = new DiamondTrap("Ju");
+	delete ptr;
 	
+	std::cout << "---- Destructors ----" << std::endl<< std::endl;
+
 	return (0);
 }

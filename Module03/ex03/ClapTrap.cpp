@@ -6,20 +6,20 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 18:03:50 by julolle-          #+#    #+#             */
-/*   Updated: 2024/01/25 19:34:25 by julolle-         ###   ########.fr       */
+/*   Updated: 2024/01/29 13:46:39 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp" 
 
 ClapTrap::ClapTrap() : _name("undefined"){
-	std::cout << "ClapTrap default construcor called: " << this->_name << std::endl;
+	std::cout << "ClapTrap default construcor called." << std::endl;
 	this->_hitPoints = 10;
 	this->_energyPoints = 10;
 	this->_attackDamage = 0;
 }
 
-ClapTrap::ClapTrap(std::string name) : _name(name){
+ClapTrap::ClapTrap(const std::string & name) : _name(name){
 	std::cout << "ClapTrap construcor called: " << this->_name << std::endl;
 	this->_hitPoints = 10;
 	this->_energyPoints = 10;
@@ -27,7 +27,7 @@ ClapTrap::ClapTrap(std::string name) : _name(name){
 }
 
 //copy constructor
-ClapTrap::ClapTrap(ClapTrap const & src){
+ClapTrap::ClapTrap (const ClapTrap & src){
 	std::cout << "ClapTrap copy construcor called: " << this->_name << std::endl;
 	*this = src;
 }
@@ -37,7 +37,7 @@ ClapTrap::~ClapTrap(){
 }
 
 //operator "="
-ClapTrap & ClapTrap::operator=(ClapTrap const & src) {
+ClapTrap & ClapTrap::operator=(const ClapTrap & src) {
 	std::cout << "Claptrap copy assignment operator called: " << this->_name << std::endl;
 	if (this != &src) {
 		this->_name = src.getName();
@@ -66,7 +66,7 @@ int	ClapTrap::getAD() const {
 }
 
 //SETTERS
-void	ClapTrap::setName(std::string const name){
+void	ClapTrap::setName(const std::string & name){
 	this->_name = name;
 }
 
@@ -83,12 +83,12 @@ void	ClapTrap::setAD(int const ad){
 }
 
 //FUNCTIONS
-void ClapTrap::attack(const std::string& target){
+void ClapTrap::attack(const std::string & target){
 
 	if ( this->_hitPoints == 0)
-		std::cout << this->_name <<" can not attack (0 hit points)." << std::endl;
+		std::cout << this->_name <<" can not attack (0 hit points)." << std::endl << std::endl;
 	else if (this->_energyPoints == 0)
-		std::cout << "CLapTrap " << this->_name <<" can not attack (0 energy points)." << std::endl;
+		std::cout << "CLapTrap " << this->_name <<" can not attack (0 energy points)." << std::endl << std::endl;
 	else {
 		this->_energyPoints--;
 		std::cout << this->_name << " attacks " << target << " causing ";
@@ -98,7 +98,7 @@ void ClapTrap::attack(const std::string& target){
 	}
 }
 
-void ClapTrap::takeDamage(unsigned amount){
+void ClapTrap::takeDamage(unsigned int amount){
 
 	if (this->_hitPoints > 0){
 		this->_hitPoints =  this->_hitPoints - amount;
@@ -110,16 +110,16 @@ void ClapTrap::takeDamage(unsigned amount){
 		std::cout << this->_energyPoints << " energy points."<< std::endl<< std::endl;
 	}
 	else{
-		std::cout << this->_name << " can not be damaged (0 hit points)." << std::endl<< std::endl;
+		std::cout << this->_name << " can not be damaged (0 hit points)." << std::endl << std::endl;
 	}
 }
 
-void ClapTrap::beRepaired(unsigned amount){
+void ClapTrap::beRepaired(unsigned int amount){
 
 	if (this->_hitPoints == 0)
-		std::cout << this->_name <<" can not be repaired (0 hit points)." << std::endl;
+		std::cout << this->_name <<" can not be repaired (0 hit points)." << std::endl << std::endl;
 	else if (this->_energyPoints == 0)
-		std::cout << this->_name <<" can not be repaired (0 energy points)." << std::endl;
+		std::cout << this->_name <<" can not be repaired (0 energy points)." << std::endl << std::endl;
 	else{
 		this->_energyPoints--;
 		this->_hitPoints +=  amount;

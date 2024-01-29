@@ -6,20 +6,20 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 18:03:50 by julolle-          #+#    #+#             */
-/*   Updated: 2024/01/25 19:21:48 by julolle-         ###   ########.fr       */
+/*   Updated: 2024/01/29 12:50:13 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp" 
 
 ScavTrap::ScavTrap() : ClapTrap(){
-	std::cout << "ScavTrap default construcor called: " << this->_name << std::endl;
+	std::cout << "ScavTrap default construcor called." << std::endl;
 	this->_hitPoints = 100;
 	this->_energyPoints = 50;
 	this->_attackDamage = 20;
 }
 
-ScavTrap::ScavTrap(std::string name) : ClapTrap(name){
+ScavTrap::ScavTrap(const std::string & name) : ClapTrap(name){
 	std::cout << "ScavTrap construcor called: " << this->_name << std::endl;
 	this->_hitPoints = 100;
 	this->_energyPoints = 50;
@@ -27,8 +27,8 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name){
 }
 
 //copy constructor
-ScavTrap::ScavTrap(ScavTrap const & src) : ClapTrap(src){
-	std::cout << "ScavTrap copy construcor called: " << this->_name << std::endl;
+ScavTrap::ScavTrap(const ScavTrap & src) : ClapTrap(src){
+	std::cout << "ScavTrap copy construcor called: " << std::endl;
 	*this = src;
 }
 
@@ -37,7 +37,7 @@ ScavTrap::~ScavTrap(){
 }
 
 //operator "="
-ScavTrap & ScavTrap::operator=(ScavTrap const & src) {
+ScavTrap & ScavTrap::operator=(const ScavTrap & src) {
 	std::cout << "Scavtrap copy assignment operator called: " << this->_name << std::endl;
 	if (this != &src) {
 		this->_name = src.getName();

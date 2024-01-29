@@ -39,7 +39,6 @@ int main( ) {
 	Teo.takeDamage(10);
 	Teo.takeDamage(7);
 
-
-
 	return (0);
 }
+

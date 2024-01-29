@@ -6,14 +6,14 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 18:03:50 by julolle-          #+#    #+#             */
-/*   Updated: 2024/01/26 18:04:54 by julolle-         ###   ########.fr       */
+/*   Updated: 2024/01/29 12:49:47 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp" 
 
-ClapTrap::ClapTrap() {
-	std::cout << "ClapTrap default construcor called: " << this->_name << std::endl;
+ClapTrap::ClapTrap() : _name("undefined"){
+	std::cout << "ClapTrap default construcor called." << std::endl;
 	this->_hitPoints = 10;
 	this->_energyPoints = 10;
 	this->_attackDamage = 0;

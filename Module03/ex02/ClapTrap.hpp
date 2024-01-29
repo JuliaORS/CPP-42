@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 19:54:15 by julolle-          #+#    #+#             */
-/*   Updated: 2024/01/25 19:20:28 by julolle-         ###   ########.fr       */
+/*   Updated: 2024/01/29 12:20:29 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,25 +21,25 @@ class ClapTrap{
 	
 	public:
 		ClapTrap();
-		ClapTrap(std::string name);
-		ClapTrap(ClapTrap const & src);
+		ClapTrap(const std::string & name);
+		ClapTrap(const ClapTrap & src);
 		~ClapTrap();
 
-		ClapTrap & operator=(ClapTrap const & src);
+		ClapTrap & operator=(const ClapTrap & src);
 
-		void attack(const std::string& target);
-		void takeDamage(unsigned int amount); 
-		void beRepaired(unsigned int amount);
-		
 		std::string getName() const;
 		int			getHP() const;
 		int			getEP() const;
 		int			getAD() const;
 
-		void		setName(std::string const name);
+		void		setName(const std::string & name);
 		void		setHP(int const hp);
 		void		setEP(int const ep);
 		void		setAD(int const ad);
+		
+		void attack(const std::string & target);
+		void takeDamage(unsigned int amount); 
+		void beRepaired(unsigned int amount);
 
 	protected:
 		std::string _name;

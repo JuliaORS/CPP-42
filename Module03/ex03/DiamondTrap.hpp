@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 19:55:08 by julolle-          #+#    #+#             */
-/*   Updated: 2024/01/25 20:54:28 by julolle-         ###   ########.fr       */
+/*   Updated: 2024/01/29 13:18:41 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ class DiamondTrap : public ScavTrap, public FragTrap {
 	
 	public:
 		DiamondTrap();
-		DiamondTrap(std::string name);
-		DiamondTrap(DiamondTrap const & src);
+		DiamondTrap(const std::string & name);
+		DiamondTrap(const DiamondTrap & src);
 		~DiamondTrap();
 
-		DiamondTrap & operator=(DiamondTrap const & src);
+		DiamondTrap & operator=(const DiamondTrap & src);
 
 		std::string getName() const;
 		
