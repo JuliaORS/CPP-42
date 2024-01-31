@@ -1,39 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 18:03:50 by julolle-          #+#    #+#             */
-/*   Updated: 2024/01/29 19:54:47 by julolle-         ###   ########.fr       */
+/*   Updated: 2024/01/29 19:54:44 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp" 
+#include "WrongAnimal.hpp" 
 
-Animal::Animal(){
+WrongAnimal::WrongAnimal(){
 	this->_type = "undefined";
 	std::cout << "Animal default construcor called. Type: " << this->getType() << std::endl;
 }
 
-Animal::Animal(const std::string & type){
+WrongAnimal::WrongAnimal(const std::string & type){
 	this->_type = type;
 	std::cout << "Animal default construcor called. Type: " << this->getType() << std::endl;
 }
 
 //copy constructor
-Animal::Animal(const Animal & src){
+WrongAnimal::WrongAnimal(const WrongAnimal & src){
 	*this = src;
 	std::cout << "Animal copy construcor called. Type: " << this->getType() <<std::endl;
 }
 
-Animal::~Animal(){
+WrongAnimal::~WrongAnimal(){
 	std::cout << "Animal Destructor called. Type: " << this->getType() << std::endl;
 }
 
 //operator "="
-Animal & Animal::operator=(const Animal & src) {
+WrongAnimal & WrongAnimal::operator=(const WrongAnimal & src) {
 	if (this != &src) {
 		this->_type = src.getType();
 	}
@@ -42,21 +42,21 @@ Animal & Animal::operator=(const Animal & src) {
 }
 
 //GETTERS
-std::string	Animal::getType() const {
+std::string	WrongAnimal::getType() const {
 	return(_type);
 }
 
 //SETTERS
-void	Animal::setType(const std::string & type){
+void	WrongAnimal::setType(const std::string & type){
 	this->_type = type;
 }
 
 //FUNCTIONS
-void Animal::makeSound(){
+void WrongAnimal::makeSound(){
 	std::cout << "...Silence..." << std::endl;
 }
 
-void Animal::makeSound() const{
+void WrongAnimal::makeSound() const{
 	std::cout << "...Silence..." << std::endl;
 }
 

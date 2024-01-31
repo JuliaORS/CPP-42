@@ -6,31 +6,33 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 19:54:15 by julolle-          #+#    #+#             */
-/*   Updated: 2024/01/29 20:09:10 by julolle-         ###   ########.fr       */
+/*   Updated: 2024/01/31 16:08:37 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BRAIN_HPP 
 # define BRAIN_HPP
 
+# include <iostream>
+# include <cstring>
+# include <iomanip>
+
 class Brain{
-	
+
 	public:
-		Animal();
-		Animal(const std::string & type);
-		Animal(const Animal & src);
-		virtual ~Animal();
+		Brain();
+		Brain(const Brain & src);
+		~Brain();
 
-		Animal & operator=(const Animal & src);
+		Brain & operator=(const Brain & src);
 
-		std::string getType() const;
-		void		setType(const std::string & type);
-		
-		virtual void makeSound();
-		virtual void makeSound() const;
+		std::string	getIdea() const;
+		void		setIdea(const std::string & idea);
+		void		printIdeas();
 
 	private:
-		std::string _type;
+		std::string _ideas[100];
+		int			_index;
 
 };
 

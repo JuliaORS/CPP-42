@@ -15,7 +15,7 @@ NAME		:= catsDogs
 HEADER		:= ./inc/
 
 SRC_PATH	:= ./src/
-SRC_FILES	:= main.cpp Animal.cpp Cat.cpp Dog.cpp Brain.cpp
+SRC_FILES	:= main.cpp AAnimal.cpp Cat.cpp Dog.cpp Brain.cpp WrongCat.cpp WrongAnimal.cpp
 SRC			:= $(addprefix $(SRC_PATH),$(SRC_FILES))
 
 OBJ_PATH	:= objs/

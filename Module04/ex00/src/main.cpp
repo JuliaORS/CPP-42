@@ -12,30 +12,30 @@
 
 #include "Dog.hpp"
 #include "Cat.hpp"
-#include "WrongCat.hpp" 
+#include "WrongCat.hpp"
 
 int main( ) {
 
 	
 	{
-	std::cout << std::endl << "---- My own test----" << std::endl;
-	
-	std::cout << std::endl << "---- Constructors ----" << std::endl << std::endl;
+		std::cout << std::endl << "---- My own tests----" << std::endl;
+		
+		std::cout << std::endl << "---- Constructors ----" << std::endl << std::endl;
 
-	Animal AnimalGen;
-	Cat Garfield;
-	Dog Oddie;
-	
-	std::cout << std::endl << "---- Make sounds ----" << std::endl << std::endl;
+		Animal AnimalGen;
+		Cat Garfield;
+		Dog Oddie;
+		
+		std::cout << std::endl << "---- Make sounds ----" << std::endl << std::endl;
 
-	std::cout << "Animal makes ";
-	AnimalGen.makeSound();
-	std::cout << "Cat makes ";
-	Garfield.makeSound();
-	std::cout << "Dog makes ";
-	Oddie.makeSound();
+		std::cout << "Animal makes ";
+		AnimalGen.makeSound();
+		std::cout << "Cat makes ";
+		Garfield.makeSound();
+		std::cout << "Dog makes ";
+		Oddie.makeSound();
 
-	std::cout << std::endl << "---- Destructors ----" << std::endl<< std::endl;
+		std::cout << std::endl << "---- Destructors ----" << std::endl<< std::endl;
 	}
 
 	{

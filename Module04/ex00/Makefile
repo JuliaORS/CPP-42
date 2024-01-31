@@ -12,15 +12,15 @@
 
 NAME		:= catsDogs
 
-HEADER_PATH	:= inc/
-HEADER		:=	$(addprefix -I,$($(HEADER_PATH)))
+HEADER		:= ./inc/
 
-SRC_PATH	:= src/
-SRC			:= main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp
+SRC_PATH	:= ./src/
+SRC_FILES	:= main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp
+SRC			:= $(addprefix $(SRC_PATH),$(SRC_FILES))
 
 OBJ_PATH	:= objs/
-OBJ			= $(addprefix $(OBJ_PATH), $(SRC:.cpp=.o))
-DEP			= $(addprefix $(OBJ_PATH), $(SRC:.cpp=.d))
+OBJ			:= $(addprefix $(OBJ_PATH),$(SRC:$(SRC_PATH)%.cpp=%.o))
+DEP			:= $(addprefix $(OBJ_PATH),$(SRC:$(SRC_PATH)%.cpp=%.d))
 
 CPP			:= g++ -std=c++98
 
@@ -29,17 +29,17 @@ CPPFLAGS	:= -Wall -Wextra -Werror -MMD -Wshadow -Wno-shadow
 RM			:= @rm -rf
 
 
--include $(DEP)
-
 all:	$(NAME)
 
 $(NAME): $(OBJ)
-	${CPP} ${CPPFLAGS} ${OBJ} ${INCLUDE} $(HEADER) -o ${NAME}
+	${CPP} ${CPPFLAGS} ${OBJ} -o ${NAME}
 	@echo "$(PINK)Cats and Dogs compiled$(DEF_COLOR)"
+
+-include $(DEP)
 
 $(OBJ_PATH)%.o:	$(SRC_PATH)%.cpp Makefile
 	@mkdir -p $(dir $@)
-	$(CPP) $(CPPFLAGS) $(INCLUDE) $(HEADER) -c $< -o $@
+	$(CPP) $(CPPFLAGS) -I$(HEADER) -c $< -o $@	
 
 clean:
 	$(RM) $(OBJ_PATH) > /dev/null

@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 18:03:50 by julolle-          #+#    #+#             */
-/*   Updated: 2024/01/31 12:45:23 by julolle-         ###   ########.fr       */
+/*   Updated: 2024/01/31 18:59:41 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Animal::Animal(){
 
 Animal::Animal(const std::string & type){
 	this->_type = type;
-	std::cout << "Animal construcor called. Type: " << this->getType() << std::endl;
+	std::cout << "Animal default construcor called. Type: " << this->getType() << std::endl;
 }
 
 //copy constructor
@@ -59,4 +59,3 @@ void Animal::makeSound(){
 void Animal::makeSound() const{
 	std::cout << "...Silence..." << std::endl;
 }
-
