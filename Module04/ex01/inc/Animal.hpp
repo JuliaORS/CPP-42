@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 19:54:15 by julolle-          #+#    #+#             */
-/*   Updated: 2024/01/31 19:18:02 by julolle-         ###   ########.fr       */
+/*   Updated: 2024/02/02 13:54:30 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 # define ANIMAL_HPP
 
 # include <iostream>
-# include <cstring>
-# include <iomanip>
 # include "Brain.hpp"
 
 class Animal{

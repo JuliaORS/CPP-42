@@ -21,7 +21,6 @@ void	generalTest(){
 
 	Cat Garfield;
 	Dog Oddie;
-
 	
 	std::cout << std::endl << "---- Make sounds ----" << std::endl << std::endl;
 
@@ -32,12 +31,6 @@ void	generalTest(){
 
 	std::cout << std::endl << "---- Destructors ----" << std::endl<< std::endl;
 
-}
-
-void printIdeas(Brain* brain){
-
-	for (int i=0; brain->getIdea() != ""; i++)
-		std::cout << "Idea " << i << ": " << brain->getIdea() << std::endl;
 }
 
 void	checkDeepCopy(){
@@ -67,33 +60,26 @@ void	checkDeepCopy(){
 
 }
 
-void	mandatoryTest(){
+void	checkAbsClass(){
 
-	std::cout << std::endl << "----------------- Mandatory test -----------------" << std::endl << std::endl;
+	std::cout << std::endl << "----------------- Checking abstract class -----------------" << std::endl << std::endl;
 
-	//const AAnimal* j = new Dog(); 
-	//const Animal* i = new Cat();
-	//delete j;
-	//delete i;
+	//AAnimal tiger;
 
-}
+	//AAnimal* zebra = new AAnimal; 
+	//delete zebra;
 
-void	animalConstructor(){
+	AAnimal* lion = new Cat();
+	lion->makeSound();
 
-	std::cout << std::endl << "----------------- Mandatory test -----------------" << std::endl << std::endl;
-
-	//const AAnimal* j = new Dog(); 
-	//const Animal* i = new Cat();
-	//delete j;
-	//delete i;
+	delete lion;
 
 }
 
 int main(){
 
-	//generalTest();
-	//checkDeepCopy();
-	//mandatoryTest();
-	animalConstructor();
+	generalTest();
+	checkDeepCopy();
+	checkAbsClass();
 	return (0);
 }

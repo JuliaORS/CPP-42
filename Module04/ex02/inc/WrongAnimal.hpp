@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 19:54:15 by julolle-          #+#    #+#             */
-/*   Updated: 2024/01/29 19:59:35 by julolle-         ###   ########.fr       */
+/*   Updated: 2024/02/02 13:53:38 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 # define WRONGANIMAL_HPP
 
 # include <iostream>
-# include <cstring>
-# include <iomanip>
 
 class WrongAnimal{
 	

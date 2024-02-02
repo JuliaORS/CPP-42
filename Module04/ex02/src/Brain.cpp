@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 18:03:50 by julolle-          #+#    #+#             */
-/*   Updated: 2024/01/31 18:52:33 by julolle-         ###   ########.fr       */
+/*   Updated: 2024/02/02 12:06:45 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void	Brain::setIdea(const std::string & idea){
 	this->_ideas[this->_index] = idea;
 }
 
+//FUNCTIONS
 void	Brain::printIdeas(){
 	if (this->_index < 0)
 		std::cout << "There are no ideas in brain"  << std::endl;

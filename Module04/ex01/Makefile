@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME		:= catsDogs
+NAME		:= brain
 
 HEADER		:= ./inc/
 
@@ -33,7 +33,7 @@ all:	$(NAME)
 
 $(NAME): $(OBJ)
 	${CPP} ${CPPFLAGS} ${OBJ} -o ${NAME}
-	@echo "$(PINK)Cats and Dogs compiled$(DEF_COLOR)"
+	@echo "$(PINK)Brain compiled$(DEF_COLOR)"
 
 -include $(DEP)
 
@@ -47,7 +47,7 @@ clean:
 
 fclean: clean
 	$(RM) $(NAME) > /dev/null
-	@echo "$(PINK)Cats and Dogs removed$(DEF_COLOR)"
+	@echo "$(PINK)Brain removed$(DEF_COLOR)"
 
 re:	fclean all
 

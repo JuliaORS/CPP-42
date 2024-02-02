@@ -24,7 +24,6 @@ void	generalTest(){
 	Cat Garfield;
 	Dog Oddie;
 
-	
 	std::cout << std::endl << "---- Make sounds ----" << std::endl << std::endl;
 
 	std::cout << "Animal makes ";
@@ -64,12 +63,6 @@ void	arrayTest(){
         delete arrAnimal[i];
 }
 
-void printIdeas(Brain* brain){
-
-	for (int i=0; brain->getIdea() != ""; i++)
-		std::cout << "Idea " << i << ": " << brain->getIdea() << std::endl;
-}
-
 void	checkDeepCopy(){
 	
 	std::cout << std::endl << "------------- Check deep copies -------------" << std::endl << std::endl;
@@ -105,7 +98,6 @@ void	mandatoryTest(){
 	const Animal* i = new Cat();
 	delete j;
 	delete i;
-
 }
 
 int main(){

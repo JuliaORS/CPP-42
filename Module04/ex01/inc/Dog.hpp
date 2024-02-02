@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 19:54:19 by julolle-          #+#    #+#             */
-/*   Updated: 2024/01/31 19:11:20 by julolle-         ###   ########.fr       */
+/*   Updated: 2024/02/02 12:05:45 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class Dog : public Animal{
 		Dog & operator=(const Dog & src);
 
 		Brain*	getBrain() const;
-		void	setBrain(Brain* brain); //sha de referenciar??
+		void	setBrain(Brain* brain);
 
 		void makeSound();
 		void makeSound() const;
