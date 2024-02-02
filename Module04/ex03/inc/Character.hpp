@@ -1,43 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AAnimal.hpp                                        :+:      :+:    :+:   */
+/*   Character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/02 13:47:39 by julolle-          #+#    #+#             */
-/*   Updated: 2024/02/02 13:47:40 by julolle-         ###   ########.fr       */
+/*   Created: 2024/02/02 14:54:01 by julolle-          #+#    #+#             */
+/*   Updated: 2024/02/02 18:25:02 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#ifndef AANIMAL_HPP 
-# define AANIMAL_HPP
+#ifndef CHARACTER_HPP 
+# define CHARACTER_HPP
 
 # include <iostream>
-# include <cstring>
-# include <iomanip>
-# include "Brain.hpp"
+# include "ICharacter.hpp"
 
-class AMateria{
+class Character : public ICharacter{
 	
 	public:
+		Character();
+		Character(const std::string & name);
+		Character(const Character & src);
+		~Character();
 
-		AMateria();
-		AMateria(const std::string & type);
-		AMateria(const AMateria & src);
-		virtual ~AMateria();
+		Character & operator=(const Character & src);
 
-		AMateria & operator=(const AMateria & src); 
+		std::string const & getName() const;
+		void	setName(const std::string & name);
 
-		std::string getType() const;
-		void		setType(const std::string & type);
-		
-		virtual void	makeSound() = 0;
-
-	protected:
-
-		std::string _type;
+	private:
+		//Materia 	_inventory[4];
 
 };
 

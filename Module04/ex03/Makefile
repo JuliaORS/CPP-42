@@ -10,12 +10,12 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME		:= materias
+NAME		:= factory
 
 HEADER		:= ./inc/
 
 SRC_PATH	:= ./src/
-SRC_FILES	:= main.cpp AAnimal.cpp Cat.cpp Dog.cpp Brain.cpp WrongCat.cpp WrongAnimal.cpp
+SRC_FILES	:= main.cpp AMateria.cpp Ice.cpp Cure.cpp Character.cpp
 SRC			:= $(addprefix $(SRC_PATH),$(SRC_FILES))
 
 OBJ_PATH	:= objs/
@@ -33,7 +33,7 @@ all:	$(NAME)
 
 $(NAME): $(OBJ)
 	${CPP} ${CPPFLAGS} ${OBJ} -o ${NAME}
-	@echo "$(PINK)abstractAnimal compiled$(DEF_COLOR)"
+	@echo "$(PINK)Factory compiled$(DEF_COLOR)"
 
 -include $(DEP)
 
@@ -47,7 +47,7 @@ clean:
 
 fclean: clean
 	$(RM) $(NAME) > /dev/null
-	@echo "$(PINK)abstractAnimal removed$(DEF_COLOR)"
+	@echo "$(PINK)Factory removed$(DEF_COLOR)"
 
 re:	fclean all
 

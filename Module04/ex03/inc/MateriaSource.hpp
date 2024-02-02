@@ -1,37 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/23 19:54:15 by julolle-          #+#    #+#             */
-/*   Updated: 2024/02/02 18:25:45 by julolle-         ###   ########.fr       */
+/*   Created: 2024/02/02 15:35:21 by julolle-          #+#    #+#             */
+/*   Updated: 2024/02/02 17:35:55 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP 
-# define BRAIN_HPP
 
-# include <iostream>
+#ifndef MATERIASOURCE_HPP
+#define MATERIASOURCE_HPP
 
-class Brain{
+#include <iostream>
+
+class MateriaSource {
 
 	public:
-		Brain();
-		Brain(const Brain & src);
-		~Brain();
-
-		Brain & operator=(const Brain & src);
-
-		std::string	getIdea() const;
-		void		setIdea(const std::string & idea);
-		void		printIdeas();
-
-	private:
-		std::string _ideas[100];
-		int			_index;
-
+		MateriaSource();
+		~MateriaSource();
+		MateriaSource(const MateriaSource& other);
+		MateriaSource& operator=(const MateriaSource& other);
 };
 
 #endif
