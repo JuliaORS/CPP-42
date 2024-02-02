@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
+/*   phoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 18:19:49 by julolle-          #+#    #+#             */
-/*   Updated: 2024/01/23 15:28:17 by julolle-         ###   ########.fr       */
+/*   Updated: 2024/01/24 16:59:26 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,21 @@ PhoneBook::PhoneBook(){
 PhoneBook::~PhoneBook(){
 }
 
+std::string	isSpace(std::string info){
+	
+	
+}
+
+
 std::string	askInput(std::string info)
 {
 	std::string	input;
-	
+	bool emptyStr = false;
+
 	std::cout << info << ": ";
 	if (!std::getline(std::cin, input))
 		return ("");
+	
 	while (input == "" || std::isspace(input[0])){
 		std::cout << "Write a correct input." << std::endl;
 		std::cout << info << ": ";
