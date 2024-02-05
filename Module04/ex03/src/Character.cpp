@@ -6,15 +6,16 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 15:47:09 by julolle-          #+#    #+#             */
-/*   Updated: 2024/02/05 14:34:01 by julolle-         ###   ########.fr       */
+/*   Updated: 2024/02/05 16:50:26 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
 
 Character::Character() {
-	this->_id = 0;
 	this->_name = "undefined";
+	for (int i=0; i < 4; i++)
+		this->_inventory[i] = NULL;
  	std::cout << "Character default construcor called." << std::endl;
 }
 
@@ -23,9 +24,14 @@ Character::Character(const std::string & name) {
  	std::cout << "Character construcor called. Name: " << this->getName() << std::endl;
 }
 
-Character::Character(const Character & src) { //DUBTES DE COM CREAR DEEP COPY
-	Character *newChar = new Character(src.getName());
-	*this = *newChar;
+Character::Character(const Character & src) { 
+	
+	this->_name = src.getName();
+
+	for (int i=0; i < 4; i++){
+		if (src._inventory[i])
+			this->_inventory[i] = src._inventory[i]->clone();
+	}
 	std::cout << "Character copy construcor called. Name: " << this->getName() << std::endl;
 }
 
@@ -33,7 +39,7 @@ Character::~Character() {
  	std::cout << this->getName() << " destructor called." << std::endl;
 }
 
-Character &Character::operator=(const Character & src) { //DUBTES DE COM CREAR DEEP COPY
+Character &Character::operator=(const Character & src) {
 	if (this != &src) {
 		this->_name = src.getName();
 	}
@@ -48,28 +54,41 @@ std::string	const & Character::getName() const {
 
 //SETTERS
 void	Character::setName(const std::string & name){
-	_name = name; 
+	_name = name;
 }
 
 //FUNCTIONS
-/*void Character::equip(AMateria* m){
-	if (this->_id < 4)
-		this->_inventory[id] = m;
-	else
-		std::cout << "Inventory is full. Unequip one materia to add a new one." << std::endl;
+void Character::equip(AMateria* m){
+	
+	int  i = 0;
+	while (i < 4){
+		if (this->_inventory[i] != NULL)
+			i++;
+		else{
+			this->_inventory[i] = m;
+			std::cout << m->getType() << " has been equiped to inventory of " << this->_name << " in " << i << " position"<< std::endl;
+			break;
+		}
+	}
+	if (i == 4)
+		std::cout << "Inventory is full. Unequip one materia to add a new one." << std::endl;	
 }
 
 void Character::unequip(int idx){
-	if (_inventory[idx] != NULL)
-		delete _inventory[idx];
+	if (idx >= 0 && idx < 4 && _inventory[idx] != NULL){
+		std::cout << _inventory[idx]->getType() << " has been unequiped to inventory of " << this->_name << " in " << idx << " position"<< std::endl;
+		_inventory[idx] = NULL;
+	}
+		
 	else
 		std::cout << "There is not materia to unequip in this slot." << std::endl;
 }
 
 void Character::use(int idx, ICharacter& target) {
-	if (_inventory[idx] != NULL)
-		this->_inventory[idx].use(target);
+	if (idx >= 0 && idx < 4 && _inventory[idx] != NULL){
+		this->_inventory[idx]->use(target);
+		std::cout << this->getName() << " uses " << _inventory[idx]->getType() << " to " << target.getName() << std::endl;
+	}
 	else
 		std::cout << "There is not materia to use in this slot." << std::endl;
-}*/
-
+}

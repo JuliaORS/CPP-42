@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 15:51:46 by julolle-          #+#    #+#             */
-/*   Updated: 2024/02/05 14:47:28 by julolle-         ###   ########.fr       */
+/*   Updated: 2024/02/05 15:42:46 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ Ice & Ice::operator=(const Ice & src){
 
 //FUNCTIONS
 AMateria* Ice::clone() const{
-	AMateria* newIce = new Ice;
+	AMateria* newIce = new Ice(*this);
 	return (newIce);
 }
 

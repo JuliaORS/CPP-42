@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 10:41:41 by julolle-          #+#    #+#             */
-/*   Updated: 2024/02/05 10:59:22 by julolle-         ###   ########.fr       */
+/*   Updated: 2024/02/05 15:38:00 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,7 @@ void MateriaSource::learnMateria(AMateria* target){
 			this->_inventory[i] = target;
 			break;
 		}
-	}
-		
+	}	
 }
 
 AMateria* MateriaSource::createMateria(std::string const & type){

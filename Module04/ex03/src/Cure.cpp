@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 17:12:53 by julolle-          #+#    #+#             */
-/*   Updated: 2024/02/05 14:47:26 by julolle-         ###   ########.fr       */
+/*   Updated: 2024/02/05 15:42:09 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ Cure & Cure::operator=(const Cure & src){
 
 //FUNCTIONS
 AMateria* Cure::clone() const{
-	AMateria* newCure = new Cure;
+	AMateria* newCure = new Cure(*this);
 	return (newCure);
 }
 
