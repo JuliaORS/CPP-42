@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 14:54:01 by julolle-          #+#    #+#             */
-/*   Updated: 2024/02/02 18:25:02 by julolle-         ###   ########.fr       */
+/*   Updated: 2024/02/05 14:36:04 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <iostream>
 # include "ICharacter.hpp"
+# include "AMateria.hpp"
 
 class Character : public ICharacter{
 	
@@ -30,7 +31,8 @@ class Character : public ICharacter{
 		void	setName(const std::string & name);
 
 	private:
-		//Materia 	_inventory[4];
+		//AMateria* 	_inventory[4];
+		int			_id;
 
 };
 

@@ -6,12 +6,14 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 14:54:37 by julolle-          #+#    #+#             */
-/*   Updated: 2024/02/02 18:16:12 by julolle-         ###   ########.fr       */
+/*   Updated: 2024/02/05 12:48:00 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ICHARACTER_HPP 
 # define ICHARACTER_HPP
+
+# include "AMateria.hpp"
 
 class ICharacter {
 
@@ -23,7 +25,9 @@ class ICharacter {
 		//virtual void use(int idx, ICharacter& target) = 0;
 	
 	protected:
+		//AMateria*	_inventory[4];
 		std::string	_name;
+
 
 };
 

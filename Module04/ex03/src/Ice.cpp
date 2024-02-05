@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 15:51:46 by julolle-          #+#    #+#             */
-/*   Updated: 2024/02/02 17:32:14 by julolle-         ###   ########.fr       */
+/*   Updated: 2024/02/05 14:47:28 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,6 @@ AMateria* Ice::clone() const{
 	return (newIce);
 }
 
-// void Ice::use(ICharacter& target){
-// 	std::cout << "* shoots an ice bolt at " << target << " *"<< std::endl;
-// }
+void Ice::use(ICharacter& target){
+	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl; 
+}
