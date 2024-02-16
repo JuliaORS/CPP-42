@@ -39,6 +39,7 @@ Bureaucrat::~Bureaucrat(){
 //operator "="
 Bureaucrat & Bureaucrat::operator=(const Bureaucrat & src) {
 	if (this != &src) {
+		this->_name = src.getName();
 		this->_grade = src.getGrade();
 	}
 	std::cout << "Bureaucrat copy assignment operator called." << std::endl;
@@ -52,6 +53,15 @@ std::string	Bureaucrat::getName() const {
 
 unsigned int	Bureaucrat::getGrade() const {
 	return(_grade);
+}
+
+//SETTERS
+void	Bureaucrat::setName(const std::string & name){
+	this->_name = name;
+}
+
+void	Bureaucrat::setGrade(const unsigned int & grade){
+	this->_grade = grade;
 }
 
 //FUNCTIONS
@@ -80,6 +90,24 @@ void	Bureaucrat::decrementGrade(unsigned int decrement){
 		throw Bureaucrat::GradeTooLowException("");
 	else
 		this->_grade = this->_grade + decrement;
+}
+
+void	Bureaucrat::signForm(Form & form){
+	
+	if (form.getIsSigned()){
+		std::cout << "Form is already signed" << std::endl;
+	}
+	else {
+		try{
+			form.beSigned(*this);
+			std::cout << form.getName() << " is signed by " << this->_name << std::endl;  
+		}
+		catch (std::out_of_range & e){
+			std::cout << this->_name << " could not sign " << form.getName() << \
+			" beacuse " << e.what() << std::endl;;
+
+		}
+	}
 }
 
 //exceptions constructors

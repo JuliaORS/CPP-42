@@ -10,36 +10,40 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BUREAUCRAFT_HPP 
-# define BUREAUCRAFT_HPP
+#ifndef FORM_HPP 
+# define FORM_HPP
 
 # include <iostream>
+#include "Bureaucrat.hpp"
 
-# define MAX_GRADE	150
-# define MIN_GRADE	1
+# define MAX_GRADE 150
+# define MIN_GRADE 1
 
-# define MAGENTA "\033[35m"
-# define RESET "\033[0m"
-# define  CYAN "\033[36m"  
+class Bureaucrat;
 
-class Bureaucrat{
+class Form{
 	
 	public:
-		Bureaucrat();
-		Bureaucrat(const std::string & name, const unsigned int grade);
-		Bureaucrat(const Bureaucrat & src);
-		virtual ~Bureaucrat();
+		Form();
+		Form(const std::string & name, const unsigned int gradeToSign, \
+			const unsigned int gradeToExecute);
+		Form(const Form & src);
+		virtual ~Form();
 
-		Bureaucrat & operator=(const Bureaucrat & src);
+		Form & operator=(const Form & src);
 
 		std::string 	getName() const;
-		unsigned int 	getGrade() const;
+		bool			getIsSigned() const;
+		unsigned int 	getGradeToSign() const;
+		unsigned int 	getGradeToExecute() const;
 
-		void	incrementGrade();
-		void	decrementGrade();
-		void	incrementGrade(unsigned int increment);
-		void	decrementGrade(unsigned int decrement);
-		
+		void			setName(const std::string & name);
+		void			setIsSigned(const bool isSigned);
+		void			setGradeToSign(const unsigned int & gradeToSign);
+		void			setGradeToExecute(const unsigned int & gradeToExecute);
+
+		void	beSigned(Bureaucrat & bureaucrat);
+
 		class GradeTooHighException : public std::out_of_range{
 			public:
 				GradeTooHighException(std::string error_msg);
@@ -50,12 +54,14 @@ class Bureaucrat{
 		};
 		
 	private:
- 		const std::string		_name;
-		unsigned int	_grade;
+ 		std::string		_name;
+		bool			_isSigned;
+		unsigned int	_gradeToSign;
+		unsigned int	_gradeToExcetute;
 
 };
 
-std::ostream &	operator<<(std::ostream & out, const Bureaucrat & bureaucrat);
+std::ostream &	operator<<(std::ostream & out, const Form & form);
 
 
 #endif

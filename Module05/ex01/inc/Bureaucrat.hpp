@@ -14,13 +14,16 @@
 # define BUREAUCRAFT_HPP
 
 # include <iostream>
+# include "Form.hpp"
 
-# define MAX_GRADE	150
-# define MIN_GRADE	1
+# define MAX_GRADE 150
+# define MIN_GRADE 1
 
 # define MAGENTA "\033[35m"
 # define RESET "\033[0m"
 # define  CYAN "\033[36m"  
+
+class Form;
 
 class Bureaucrat{
 	
@@ -34,12 +37,16 @@ class Bureaucrat{
 
 		std::string 	getName() const;
 		unsigned int 	getGrade() const;
+		void			setName(const std::string & name);
+		void			setGrade(const unsigned int & grade);
 
 		void	incrementGrade();
 		void	decrementGrade();
 		void	incrementGrade(unsigned int increment);
 		void	decrementGrade(unsigned int decrement);
-		
+
+		void	signForm(Form & form);
+
 		class GradeTooHighException : public std::out_of_range{
 			public:
 				GradeTooHighException(std::string error_msg);
@@ -50,7 +57,7 @@ class Bureaucrat{
 		};
 		
 	private:
- 		const std::string		_name;
+ 		std::string		_name;
 		unsigned int	_grade;
 
 };
