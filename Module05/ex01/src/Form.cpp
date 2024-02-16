@@ -44,7 +44,6 @@ Form::~Form(){
 //operator "="
 Form & Form::operator=(const Form & src) {
 	if (this != &src) {
-		this->_name = src.getName();
 		this->_isSigned = src.getIsSigned();
 		this->_gradeToSign = src.getGradeToSign();
 		this->_gradeToExcetute = src.getGradeToExecute();
@@ -71,10 +70,6 @@ unsigned int Form::getGradeToExecute() const{
 }
 
 //SETTERS
-void	Form::setName(const std::string & name){
-	this->_name = name;
-}
-
 void	Form::setIsSigned(const bool isSigned){
 	this->_isSigned = isSigned;
 }

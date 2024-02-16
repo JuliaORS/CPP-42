@@ -37,7 +37,6 @@ class Form{
 		unsigned int 	getGradeToSign() const;
 		unsigned int 	getGradeToExecute() const;
 
-		void			setName(const std::string & name);
 		void			setIsSigned(const bool isSigned);
 		void			setGradeToSign(const unsigned int & gradeToSign);
 		void			setGradeToExecute(const unsigned int & gradeToExecute);
@@ -54,7 +53,7 @@ class Form{
 		};
 		
 	private:
- 		std::string		_name;
+ 		const std::string		_name;
 		bool			_isSigned;
 		unsigned int	_gradeToSign;
 		unsigned int	_gradeToExcetute;
