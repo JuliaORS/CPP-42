@@ -39,7 +39,6 @@ Bureaucrat::~Bureaucrat(){
 //operator "="
 Bureaucrat & Bureaucrat::operator=(const Bureaucrat & src) {
 	if (this != &src) {
-		this->_name = src.getName();
 		this->_grade = src.getGrade();
 	}
 	std::cout << "Bureaucrat copy assignment operator called." << std::endl;
@@ -53,15 +52,6 @@ std::string	Bureaucrat::getName() const {
 
 unsigned int	Bureaucrat::getGrade() const {
 	return(_grade);
-}
-
-//SETTERS
-void	Bureaucrat::setName(const std::string & name){
-	this->_name = name;
-}
-
-void	Bureaucrat::setGrade(const unsigned int & grade){
-	this->_grade = grade;
 }
 
 //FUNCTIONS
@@ -113,7 +103,6 @@ void	Bureaucrat::signForm(Form & form){
 //exceptions constructors
 Bureaucrat::GradeTooHighException::GradeTooHighException(std::string error_msg) : \
 	std::out_of_range(error_msg + "Range too high") {
-		
 };
 
 Bureaucrat::GradeTooLowException::GradeTooLowException(std::string error_msg) : \

@@ -84,7 +84,7 @@ void	testBeSignedFunction(){
 	}
 
 	std::cout << std::endl << MAGENTA << "Try to sign with correct grade" << RESET << std::endl;
-	Julia.setGrade(20);
+	Julia.incrementGrade(100);
 	try {
 		form1.beSigned(Julia);
 	}
@@ -103,9 +103,15 @@ void	testBeSignedFunction(){
 
 	
 	std::cout << std::endl << MAGENTA << "Bureaucrat can sign form" << RESET << std::endl;
-	form2.setGradeToSign(123);
+	std::cout << Julia << std::endl;
+	try {
+		Julia.incrementGrade(18);
+	}
+	catch (std::out_of_range & e){
+		std::cout << "\tcatch: " << e.what() << std::endl;
+	}
+	std::cout << Julia << std::endl;
 	Julia.signForm(form2);
-
 }
 
 void	testCanonicalForm(){
