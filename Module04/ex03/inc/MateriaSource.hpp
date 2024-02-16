@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 15:35:21 by julolle-          #+#    #+#             */
-/*   Updated: 2024/02/05 12:12:22 by julolle-         ###   ########.fr       */
+/*   Updated: 2024/02/07 13:43:30 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,18 @@ class MateriaSource : public IMateriaSource {
 
 	public:
 		MateriaSource();
-		MateriaSource(const std::string & name);
 		MateriaSource(const MateriaSource & src);
 		~MateriaSource();
 		
 		MateriaSource& operator=(const MateriaSource & src);
+
+		AMateria* const & getInventory() const;
+		
+		void learnMateria(AMateria*);
+		AMateria* createMateria(std::string const & type);
+		
+	private:
+		AMateria* 	_inventory[4];
 	
 };
 

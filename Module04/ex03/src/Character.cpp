@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 15:47:09 by julolle-          #+#    #+#             */
-/*   Updated: 2024/02/05 16:50:26 by julolle-         ###   ########.fr       */
+/*   Updated: 2024/02/07 14:28:49 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,24 @@ Character::Character() {
 	this->_name = "undefined";
 	for (int i=0; i < 4; i++)
 		this->_inventory[i] = NULL;
+	this->_idxFloor = 0;
  	std::cout << "Character default construcor called." << std::endl;
 }
 
 Character::Character(const std::string & name) {
 	_name = name;
+	for (int i=0; i < 4; i++)
+		this->_inventory[i] = NULL;
  	std::cout << "Character construcor called. Name: " << this->getName() << std::endl;
 }
 
+//copy constructor
 Character::Character(const Character & src) { 
 	
 	this->_name = src.getName();
 
 	for (int i=0; i < 4; i++){
+		this->_inventory[i] = NULL;
 		if (src._inventory[i])
 			this->_inventory[i] = src._inventory[i]->clone();
 	}
@@ -37,12 +42,28 @@ Character::Character(const Character & src) {
 
 Character::~Character() {
  	std::cout << this->getName() << " destructor called." << std::endl;
+	for (int i = 0; i < 4; i++){
+		if (this->_inventory[i] != NULL)
+			delete this->_inventory[i];
+	}
+	for (int i = 0; i < this->_idxFloor; i++){
+		delete this->_floor[i];
+	}
 }
 
+//Operator =
 Character &Character::operator=(const Character & src) {
-	if (this != &src) {
+	if (this != &src){
 		this->_name = src.getName();
-	}
+		for(int i=0; i < 4; i++){
+			if (this->_inventory[i])
+				delete this->_inventory[i];
+			this->_inventory[i] = NULL;
+			if (src._inventory[i])
+				this->_inventory[i] = src._inventory[i]->clone();
+		}
+		
+	} 
 	std::cout << "Character copy assignment operator called. Name: " << this->getName() << std::endl;
 	return(*this);
 }
@@ -65,7 +86,7 @@ void Character::equip(AMateria* m){
 		if (this->_inventory[i] != NULL)
 			i++;
 		else{
-			this->_inventory[i] = m;
+			this->_inventory[i] = m->clone();
 			std::cout << m->getType() << " has been equiped to inventory of " << this->_name << " in " << i << " position"<< std::endl;
 			break;
 		}
@@ -75,9 +96,11 @@ void Character::equip(AMateria* m){
 }
 
 void Character::unequip(int idx){
-	if (idx >= 0 && idx < 4 && _inventory[idx] != NULL){
+	if (idx >= 0 && idx < 4 && this->_inventory[idx] != NULL){
 		std::cout << _inventory[idx]->getType() << " has been unequiped to inventory of " << this->_name << " in " << idx << " position"<< std::endl;
-		_inventory[idx] = NULL;
+		_floor[this->_idxFloor] = _inventory[idx];
+		this->_idxFloor++;
+		this->_inventory[idx] = NULL;
 	}
 		
 	else
@@ -85,10 +108,19 @@ void Character::unequip(int idx){
 }
 
 void Character::use(int idx, ICharacter& target) {
-	if (idx >= 0 && idx < 4 && _inventory[idx] != NULL){
+	if (idx >= 0 && idx < 4 && this->_inventory[idx] != NULL){
 		this->_inventory[idx]->use(target);
-		std::cout << this->getName() << " uses " << _inventory[idx]->getType() << " to " << target.getName() << std::endl;
+		std::cout << this->getName() << " uses " << _inventory[idx]->getType() << " to " << target.getName() << std::endl << std::endl;;
 	}
 	else
-		std::cout << "There is not materia to use in this slot." << std::endl;
+		std::cout << "There is not materia to use in this slot." << std::endl << std::endl;;
+}
+
+void Character::printInventory() {
+	
+	std::cout << "INVENTORY:" << std::endl;
+	for(int i=0; i < 4; i++){
+		if (this->_inventory[i] != NULL)
+			std::cout << "Slot: " << i << " - Materia: " << this->_inventory[i]->getType() << std::endl;;
+	}
 }

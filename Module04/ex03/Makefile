@@ -15,7 +15,7 @@ NAME		:= factory
 HEADER		:= ./inc/
 
 SRC_PATH	:= ./src/
-SRC_FILES	:= main.cpp AMateria.cpp Character.cpp Ice.cpp Cure.cpp 
+SRC_FILES	:= main.cpp AMateria.cpp Character.cpp Ice.cpp Cure.cpp MateriaSource.cpp
 # MateriaSource.cpp 
 SRC			:= $(addprefix $(SRC_PATH),$(SRC_FILES))
 

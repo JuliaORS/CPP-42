@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 14:54:01 by julolle-          #+#    #+#             */
-/*   Updated: 2024/02/05 15:26:06 by julolle-         ###   ########.fr       */
+/*   Updated: 2024/02/07 14:01:48 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,12 @@ class Character : public ICharacter{
 		void equip(AMateria* m);
 		void unequip(int idx);
 		void use(int idx, ICharacter& target);
+		void printInventory();
 
 	private:
 		AMateria* 	_inventory[4];
+		int			_idxFloor;
+		AMateria* 	_floor[];
 };
 
 #endif
