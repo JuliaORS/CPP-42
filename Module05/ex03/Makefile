@@ -10,13 +10,13 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME		:= BureaucratMoreForms
+NAME		:= BureaucratIntern
 
 HEADER		:= ./inc/
 
 SRC_PATH	:= ./src/
 SRC_FILES	:= main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp\
-				RobotomyRequestForm.cpp PresidentialPardonForm.cpp
+				RobotomyRequestForm.cpp PresidentialPardonForm.cpp Intern.cpp
 SRC			:= $(addprefix $(SRC_PATH),$(SRC_FILES))
 
 OBJ_PATH	:= objs/
@@ -24,7 +24,6 @@ OBJ			:= $(addprefix $(OBJ_PATH),$(SRC:$(SRC_PATH)%.cpp=%.o))
 DEP			:= $(addprefix $(OBJ_PATH),$(SRC:$(SRC_PATH)%.cpp=%.d))
 
 CPP			:= g++ -std=c++98
-
 CPPFLAGS	:= -Wall -Wextra -Werror -MMD -Wshadow -Wno-shadow
 
 RM			:= @rm -rf
@@ -34,7 +33,7 @@ all:	$(NAME)
 
 $(NAME): $(OBJ)
 	${CPP} ${CPPFLAGS} ${OBJ} -o ${NAME}
-	@echo "$(PINK)BureaucratMoreForms compiled$(DEF_COLOR)"
+	@echo "$(PINK)BureaucratIntern compiled$(DEF_COLOR)"
 
 -include $(DEP)
 
@@ -48,7 +47,7 @@ clean:
 
 fclean: clean
 	$(RM) $(NAME) > /dev/null
-	@echo "$(PINK)BureaucratMoreForms removed$(DEF_COLOR)"
+	@echo "$(PINK)BureaucratIntern removed$(DEF_COLOR)"
 
 re:	fclean all
 
