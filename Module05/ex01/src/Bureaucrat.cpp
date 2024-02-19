@@ -18,9 +18,9 @@ Bureaucrat::Bureaucrat() : _name("uname"), _grade(MAX_GRADE) {
 
 Bureaucrat::Bureaucrat(const std::string & name, const unsigned int grade) : _name(name) {
 	if (grade < MIN_GRADE)
-		throw Bureaucrat::GradeTooHighException("");
+		throw Bureaucrat::GradeTooHighException();
 	else if (grade > MAX_GRADE)
-		throw Bureaucrat::GradeTooLowException("");
+		throw Bureaucrat::GradeTooLowException();
 	else
 		this->_grade = grade;
 	std::cout << this->_name << " Bureaucrat construcor called." << std::endl;
@@ -57,40 +57,39 @@ unsigned int	Bureaucrat::getGrade() const {
 //FUNCTIONS
 void	Bureaucrat::incrementGrade(){
 	if (this->_grade - 1 < MIN_GRADE)
-		throw Bureaucrat::GradeTooHighException("");
+		throw Bureaucrat::GradeTooHighException();
 	else
 		this->_grade--;
 }
 
 void	Bureaucrat::incrementGrade(unsigned int increment){
 	if (this->_grade < MIN_GRADE + increment)
-		throw Bureaucrat::GradeTooHighException("");
+		throw Bureaucrat::GradeTooHighException();
 	else
 		this->_grade = this->_grade - increment;
 }
 
 void	Bureaucrat::decrementGrade(){
 	if (this->_grade + 1 > MAX_GRADE)
-		throw Bureaucrat::GradeTooLowException("");
+		throw Bureaucrat::GradeTooLowException();
 	else
 		this->_grade++;
 }
 void	Bureaucrat::decrementGrade(unsigned int decrement){
 	if (this->_grade + decrement > MAX_GRADE)
-		throw Bureaucrat::GradeTooLowException("");
+		throw Bureaucrat::GradeTooLowException();
 	else
 		this->_grade = this->_grade + decrement;
 }
 
 void	Bureaucrat::signForm(Form & form){
-	
 	if (form.getIsSigned()){
-		std::cout << "Form is already signed" << std::endl;
+		throw Form::FormIsSignedException("");
 	}
 	else {
 		try{
 			form.beSigned(*this);
-			std::cout << form.getName() << " is signed by " << this->_name << std::endl;  
+			std::cout << GREEN << form.getName() << " is signed by " << this->_name << RESET << std::endl;  
 		}
 		catch (std::out_of_range & e){
 			std::cout << this->_name << " could not sign " << form.getName() << \
@@ -100,18 +99,17 @@ void	Bureaucrat::signForm(Form & form){
 	}
 }
 
-//exceptions constructors
-Bureaucrat::GradeTooHighException::GradeTooHighException(std::string error_msg) : \
-	std::out_of_range(error_msg + "Range too high") {
-};
+//exceptions
+const char *	Bureaucrat::GradeTooHighException::what () const throw (){
+	return ("Range too high");
+}
 
-Bureaucrat::GradeTooLowException::GradeTooLowException(std::string error_msg) : \
-	std::out_of_range(error_msg + "Range too low"){
-};
-
+const char *	Bureaucrat::GradeTooLowException::what () const throw (){
+	return ("Range too low");
+}
 
 //operador "<<" 
 std::ostream &	operator<<(std::ostream & out, const Bureaucrat & bureaucrat){
-	out << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade();
+	out << YELLOW << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade() << RESET;
 	return (out);
 }

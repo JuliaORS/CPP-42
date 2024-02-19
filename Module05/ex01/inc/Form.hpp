@@ -28,7 +28,7 @@ class Form{
 		Form(const std::string & name, const unsigned int gradeToSign, \
 			const unsigned int gradeToExecute);
 		Form(const Form & src);
-		virtual ~Form();
+		~Form();
 
 		Form & operator=(const Form & src);
 
@@ -41,7 +41,7 @@ class Form{
 		void			setGradeToSign(const unsigned int & gradeToSign);
 		void			setGradeToExecute(const unsigned int & gradeToExecute);
 
-		void	beSigned(Bureaucrat & bureaucrat);
+		void			beSigned(Bureaucrat & bureaucrat);
 
 		class GradeTooHighException : public std::out_of_range{
 			public:
@@ -50,6 +50,10 @@ class Form{
 		class GradeTooLowException : public std::out_of_range{
 			public:
 				GradeTooLowException(std::string error_msg);
+		};
+		class FormIsSignedException : public std::runtime_error{
+			public:
+				FormIsSignedException(std::string error_msg);
 		};
 		
 	private:

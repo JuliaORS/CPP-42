@@ -10,25 +10,25 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SHRUBBERYCREATIONFORM_HPP 
-# define SHRUBBERYCREATIONFORM_HPP
+#ifndef PRESIDENTIALPARDONFORM_HPP 
+# define PRESIDENTIALPARDONFORM_HPP
 
 # include <iostream>
 # include "AForm.hpp"
 
-# define MIN_GRADE_SIGN_SC 145
-# define MIN_GRADE_EXECUTE_SC 137
+# define MIN_GRADE_SIGN_PP 25
+# define MIN_GRADE_EXECUTE_PP 5
 
 
-class ShrubberyCreationForm : public AForm{
+class PresidentialPardonForm : public AForm{
 	
 	public:
-		ShrubberyCreationForm();
-		ShrubberyCreationForm(const std::string & target);
-		ShrubberyCreationForm(const ShrubberyCreationForm & src);
-		~ShrubberyCreationForm();
+		PresidentialPardonForm();
+		PresidentialPardonForm(const std::string & target);
+		PresidentialPardonForm(const PresidentialPardonForm & src);
+		~PresidentialPardonForm();
 
-		ShrubberyCreationForm & operator=(const ShrubberyCreationForm & src);
+		PresidentialPardonForm & operator=(const PresidentialPardonForm & src);
 
 		std::string 	getTarget() const;
 
@@ -39,6 +39,6 @@ class ShrubberyCreationForm : public AForm{
 
 };
 
-std::ostream &	operator<<(std::ostream & out, const ShrubberyCreationForm & SCform);
+std::ostream &	operator<<(std::ostream & out, const PresidentialPardonForm & SCform);
 
 #endif

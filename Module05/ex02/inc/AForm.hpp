@@ -17,9 +17,6 @@
 # include <fstream>
 # include "Bureaucrat.hpp"
 
-# define MAX_GRADE 150
-# define MIN_GRADE 1
-
 class Bureaucrat;
 
 class AForm{
@@ -43,7 +40,8 @@ class AForm{
 		void			setGradeToExecute(const unsigned int & gradeToExecute);
 
 		void			beSigned(Bureaucrat & bureaucrat);
-		virtual void	execute(Bureaucrat const & executor) const = 0;
+		void			execute(Bureaucrat const & executor) const;
+		virtual void	executeConcreteForm() const = 0;
 
 		class GradeTooHighException : public std::out_of_range{
 			public:
@@ -53,6 +51,10 @@ class AForm{
 			public:
 				GradeTooLowException(std::string error_msg);
 		};
+		class FormIsSignedException : public std::runtime_error{
+			public:
+				FormIsSignedException(std::string error_msg);
+		};
 		
 	private:
  		const std::string		_name;
@@ -61,7 +63,5 @@ class AForm{
 		unsigned int	_gradeToExcetute;
 
 };
-
-std::ostream &	operator<<(std::ostream & out, const AForm & form);
 
 #endif

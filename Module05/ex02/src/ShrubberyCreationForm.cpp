@@ -12,11 +12,11 @@
 
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm() : AForm("form", MIN_GRADE_SIGN, MIN_GRADE_EXECUTE), _target("undefinedTarget") {
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm("form", MIN_GRADE_SIGN_SC, MIN_GRADE_EXECUTE_SC), _target("undefinedTarget") {
 	std::cout << "ShrubberyCreationForm default construcor called." << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string & target) : AForm("form", MIN_GRADE_SIGN, MIN_GRADE_EXECUTE), _target(target) {
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string & target) : AForm("form", MIN_GRADE_SIGN_SC, MIN_GRADE_EXECUTE_SC), _target(target) {
 
 	std::cout << this->_target << " ShrubberyCreationForm construcor called." << std::endl;
 }
@@ -65,30 +65,23 @@ void	addTreeFile(std::ofstream &outfile){
 				"       ---------------\n" << std::endl;			
 }
 
-void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const{
-	
-	try{
-		
-
-	} 
-
-
+void	ShrubberyCreationForm::executeConcreteForm() const{
 	std::ofstream outfile(_target + "_shrubbery");
 	if (!outfile.is_open()){
 		std::cout << "File has an error" << std::endl;
 		return;
 	}
-
+	std::cout << GREEN << "Creating trees..." << RESET << std::endl;
 	addTreeFile(outfile);
 }
 
 //operador "<<" 
 std::ostream &	operator<<(std::ostream & out, const ShrubberyCreationForm & SCform){
-	out << "[" << SCform.getTarget() << "] Grade to sign: " << SCform.getGradeToSign() \
-		<< " / Grade to execute: " << SCform.getGradeToExecute();
+	out << YELLOW << "[" << SCform.getTarget() << "] Shrubbery Creation Form | Grade to sign: " << SCform.getGradeToSign() \
+		<< " | Grade to execute: " << SCform.getGradeToExecute();
 	if (SCform.getIsSigned())
-		out << " / Form is Signed." << std::endl;
+		out << " | Form is Signed." << std::endl;
 	else
-		out << " / form is not signed." <<std::endl;
+		out << " | form is not signed." <<std::endl;
 	return (out);
 }

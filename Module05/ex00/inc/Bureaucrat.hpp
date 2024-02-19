@@ -28,7 +28,7 @@ class Bureaucrat{
 		Bureaucrat();
 		Bureaucrat(const std::string & name, const unsigned int grade);
 		Bureaucrat(const Bureaucrat & src);
-		virtual ~Bureaucrat();
+		~Bureaucrat();
 
 		Bureaucrat & operator=(const Bureaucrat & src);
 
@@ -40,15 +40,15 @@ class Bureaucrat{
 		void	incrementGrade(unsigned int increment);
 		void	decrementGrade(unsigned int decrement);
 		
-		class GradeTooHighException : public std::out_of_range{
+		class GradeTooHighException : public std::exception{
 			public:
-				GradeTooHighException(std::string error_msg);
+				const char * what () const throw ();
 		};
-		class GradeTooLowException : public std::out_of_range{
+		class GradeTooLowException : public std::exception{
 			public:
-				GradeTooLowException(std::string error_msg);
+				const char * what () const throw ();
 		};
-		
+
 	private:
  		const std::string		_name;
 		unsigned int	_grade;

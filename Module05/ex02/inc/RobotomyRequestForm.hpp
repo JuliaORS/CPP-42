@@ -10,25 +10,25 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SHRUBBERYCREATIONFORM_HPP 
-# define SHRUBBERYCREATIONFORM_HPP
+#ifndef ROBOTOMYREQUESTFORM_HPP 
+# define ROBOTOMYREQUESTFORM_HPP
 
 # include <iostream>
 # include "AForm.hpp"
 
-# define MIN_GRADE_SIGN_SC 145
-# define MIN_GRADE_EXECUTE_SC 137
+# define MIN_GRADE_SIGN_RR 72
+# define MIN_GRADE_EXECUTE_RR 45
 
 
-class ShrubberyCreationForm : public AForm{
+class RobotomyRequestForm : public AForm{
 	
 	public:
-		ShrubberyCreationForm();
-		ShrubberyCreationForm(const std::string & target);
-		ShrubberyCreationForm(const ShrubberyCreationForm & src);
-		~ShrubberyCreationForm();
+		RobotomyRequestForm();
+		RobotomyRequestForm(const std::string & target);
+		RobotomyRequestForm(const RobotomyRequestForm & src);
+		~RobotomyRequestForm();
 
-		ShrubberyCreationForm & operator=(const ShrubberyCreationForm & src);
+		RobotomyRequestForm & operator=(const RobotomyRequestForm & src);
 
 		std::string 	getTarget() const;
 
@@ -39,6 +39,6 @@ class ShrubberyCreationForm : public AForm{
 
 };
 
-std::ostream &	operator<<(std::ostream & out, const ShrubberyCreationForm & SCform);
+std::ostream &	operator<<(std::ostream & out, const RobotomyRequestForm & SCform);
 
 #endif

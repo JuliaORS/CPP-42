@@ -18,10 +18,9 @@ void	constructorCorrectGrade(){
 	try {
 		Bureaucrat("Julia", 120);
 	}
-	catch (std::out_of_range & e){
+	catch (std::exception & e){
 		std::cout << "\tcatch: " << e.what() << std::endl;
 	}
-
 }
 
 void	constructorTooHighGrade(){
@@ -30,10 +29,9 @@ void	constructorTooHighGrade(){
 	try {
 		Bureaucrat("Julia", 0);	
 	}
-	catch (std::out_of_range & e){
+	catch (std::exception & e){
 		std::cout << "\tcatch: " << e.what() << std::endl;
 	}
-
 }
 
 void	constructorTooLowGrade(){
@@ -42,74 +40,59 @@ void	constructorTooLowGrade(){
 	try {
 		Bureaucrat("Julia", 987);
 	}
-	catch (std::out_of_range & e){
+	catch (std::exception & e){
 		std::cout << "\tcatch: " << e.what() << std::endl;
 	}
-
 }
 
 void	testIncrementGrade(){
 	
 	std::cout << std::endl << std::endl << CYAN << "----- Test increment grade ----- " << RESET << std::endl << std::endl;
-	Bureaucrat Julia = Bureaucrat("Julia", 120);
-
-	std::cout << Julia << std::endl;
-
-	std::cout << MAGENTA << "Try to increment 119." << RESET << std::endl;
 	try {
+		Bureaucrat Julia = Bureaucrat("Julia", 120);
+		std::cout << Julia << std::endl;
+		std::cout << MAGENTA << "Try to increment 119." << RESET << std::endl;
 		Julia.incrementGrade(119);
-	}
-	catch (std::out_of_range & e){
-		std::cout << "\tcatch: " << e.what() << std::endl;
-	}
-	std::cout << Julia << std::endl << std::endl;
-	std::cout << MAGENTA << "Try to increment 1." << RESET << std::endl;
-	try {
+		std::cout << Julia << std::endl << std::endl;
+		std::cout << MAGENTA << "Try to increment 1." << RESET << std::endl;
 		Julia.incrementGrade();
+		std::cout << Julia << std::endl << std::endl;
 	}
-	catch (std::out_of_range & e){
+	catch (std::exception & e){
 		std::cout << "\tcatch: " << e.what() << std::endl;
 	}
-	std::cout << Julia << std::endl << std::endl;
 }
 
 void	testDecrementGrade(){
 	
 	std::cout << std::endl << std::endl << CYAN << "----- Test decrement grade ----- " << RESET << std::endl << std::endl;
-	Bureaucrat Julia = Bureaucrat("Julia", 120);
-
-	std::cout << Julia << std::endl;
-
-	std::cout << MAGENTA << "Try to decrement 30." << RESET << std::endl;
 	try {
+		Bureaucrat Julia = Bureaucrat("Julia", 120);
+		std::cout << Julia << std::endl;
+		std::cout << MAGENTA << "Try to decrement 30." << RESET << std::endl;
 		Julia.decrementGrade(30);
-	}
-	catch (std::out_of_range & e){
-		std::cout << "\tcatch: " << e.what() << std::endl;
-	}
-	std::cout << Julia << std::endl << std::endl;
-	std::cout << MAGENTA << "Try to decrement 1." << RESET << std::endl;
-	try {
+		std::cout << Julia << std::endl << std::endl;
+		std::cout << MAGENTA << "Try to decrement 1." << RESET << std::endl;
 		Julia.decrementGrade();
+		std::cout << Julia << std::endl << std::endl;
 	}
-	catch (std::out_of_range & e){
+	catch (std::exception & e){
 		std::cout << "\tcatch: " << e.what() << std::endl;
 	}
-	std::cout << Julia << std::endl << std::endl;
-
 }
 
 void	testCanonicalForm(){
 	std::cout << std::endl << std::endl << CYAN << "----- Test canonical form ----- " << RESET << std::endl << std::endl;
-	Bureaucrat Julia = Bureaucrat("Julia", 120);
-	
-	Bureaucrat Pepe = Bureaucrat("Pepe", 113);
-	
-	Pepe = Julia;
-
-	std::cout << Pepe << std::endl << std::endl;
-	std::cout << Julia << std::endl << std::endl;
-
+	try {
+		Bureaucrat Julia = Bureaucrat("Julia", 120);
+		Bureaucrat Pepe = Bureaucrat("Pepe", 113);
+		Pepe = Julia;
+		std::cout << Pepe << std::endl << std::endl;
+		std::cout << Julia << std::endl << std::endl;
+	}
+	catch (std::exception & e){
+		std::cout << "\tcatch: " << e.what() << std::endl;
+	}
 }
 
 

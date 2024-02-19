@@ -20,9 +20,9 @@ Form::Form() : _name("uname"), _isSigned(false), _gradeToSign(MAX_GRADE),\
 Form::Form(const std::string & name, const unsigned int gradeToSign, \
 	const unsigned int gradeToExecute) : _name(name), _isSigned(false) {
 	if (gradeToSign < MIN_GRADE || gradeToExecute < MIN_GRADE)
-		throw Form::GradeTooHighException("");
+		throw Form::GradeTooHighException("Form cannot be constructed. ");
 	else if (gradeToSign > MAX_GRADE || gradeToExecute > MAX_GRADE)
-		throw Form::GradeTooLowException("");
+		throw Form::GradeTooLowException("Form cannot be constructed. ");
 	else{
 		this->_gradeToSign = gradeToSign;
 		this->_gradeToExcetute = gradeToExecute;
@@ -86,30 +86,35 @@ void	Form::setGradeToExecute(const unsigned int & getGradeToExecute){
 //FUNCTIONS
 void	Form::beSigned(Bureaucrat & bureaucrat){
 	if (bureaucrat.getGrade() > this->_gradeToSign)
-		throw Form::GradeTooLowException("");
+		throw Form::GradeTooLowException("Form can not be signed. ");
+	if (this->_isSigned)
+		throw Form::FormIsSignedException("Form is already signed.");
 	else{
 		this->_isSigned= true;
-		std::cout << bureaucrat.getName() << " has signed " << this->_name << std::endl; 
+		std::cout << GREEN << bureaucrat.getName() << " has signed " << this->_name << RESET << std::endl; 
 	}
 }
 
-//exceptions constructors
+//exceptions
 Form::GradeTooHighException::GradeTooHighException(std::string error_msg) : \
-	std::out_of_range(error_msg + "Range too high") {
+	std::out_of_range(error_msg + "Range too high.") {
 };
 
 Form::GradeTooLowException::GradeTooLowException(std::string error_msg) : \
-	std::out_of_range(error_msg + "Range too low"){
+	std::out_of_range(error_msg + "Range too low."){
 };
 
+Form::FormIsSignedException::FormIsSignedException(std::string error_msg) : \
+	std::runtime_error(error_msg + "Form is already signed"){
+};
 
 //operador "<<" 
 std::ostream &	operator<<(std::ostream & out, const Form & form){
-	out << "[" << form.getName() << "] Grade to sign: " << form.getGradeToSign() \
-		<< " / Grade to execute: " << form.getGradeToExecute();
+	out << YELLOW << "[" << form.getName() << "] Grade to sign: " << form.getGradeToSign() \
+		<< " | Grade to execute: " << form.getGradeToExecute();
 	if (form.getIsSigned())
-		out << " / Form is Signed." << std::endl;
+		out << " | Form is Signed." << RESET << std::endl;
 	else
-		out << " / form is not signed." <<std::endl;
+		out << " | form is not signed." << RESET << std::endl;
 	return (out);
 }

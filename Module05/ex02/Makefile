@@ -15,7 +15,7 @@ NAME		:= BureaucratMoreForms
 HEADER		:= ./inc/
 
 SRC_PATH	:= ./src/
-SRC_FILES	:= main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp
+SRC_FILES	:= main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
 SRC			:= $(addprefix $(SRC_PATH),$(SRC_FILES))
 
 OBJ_PATH	:= objs/

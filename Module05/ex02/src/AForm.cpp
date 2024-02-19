@@ -86,30 +86,34 @@ void	AForm::setGradeToExecute(const unsigned int & getGradeToExecute){
 //FUNCTIONS
 void	AForm::beSigned(Bureaucrat & bureaucrat){
 	if (bureaucrat.getGrade() > this->_gradeToSign)
-		throw AForm::GradeTooLowException("");
+		throw AForm::GradeTooLowException(" ");
+	if (this->_isSigned)
+		throw AForm::FormIsSignedException("");
 	else{
 		this->_isSigned= true;
-		std::cout << bureaucrat.getName() << " has signed " << this->_name << std::endl; 
+		std::cout << GREEN << bureaucrat.getName() << " has signed " << this->_name << RESET << std::endl; 
 	}
 }
 
-//exceptions constructors
+void	AForm::execute(Bureaucrat const & executor) const{
+	if (_isSigned){
+		throw AForm::FormIsSignedException("");
+	}
+	if (executor.getGrade() > getGradeToExecute()){
+		throw AForm::GradeTooLowException("");
+	}
+	executeConcreteForm();
+}
+
+//exceptions
 AForm::GradeTooHighException::GradeTooHighException(std::string error_msg) : \
-	std::out_of_range(error_msg + "Range too high") {
+	std::out_of_range(error_msg + "Range too high.") {
 };
 
 AForm::GradeTooLowException::GradeTooLowException(std::string error_msg) : \
-	std::out_of_range(error_msg + "Range too low"){
+	std::out_of_range(error_msg + "Range too low."){
 };
 
-
-//operador "<<" 
-std::ostream &	operator<<(std::ostream & out, const AForm & form){
-	out << "[" << form.getName() << "] Grade to sign: " << form.getGradeToSign() \
-		<< " / Grade to execute: " << form.getGradeToExecute();
-	if (form.getIsSigned())
-		out << " / Form is Signed." << std::endl;
-	else
-		out << " / form is not signed." <<std::endl;
-	return (out);
-}
+AForm::FormIsSignedException::FormIsSignedException(std::string error_msg) : \
+	std::runtime_error(error_msg + "Form is already signed."){
+};

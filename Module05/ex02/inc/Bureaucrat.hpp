@@ -22,6 +22,10 @@
 # define MAGENTA "\033[35m"
 # define RESET "\033[0m"
 # define  CYAN "\033[36m"  
+# define RED "\033[31m"
+# define GREEN "\033[32m"
+# define YELLOW "\033[38:5:220m"
+
 
 class AForm;
 
@@ -44,19 +48,20 @@ class Bureaucrat{
 		void	decrementGrade(unsigned int decrement);
 
 		void	signForm(AForm & form);
+		void	executeForm(AForm const & form);
 
-		class GradeTooHighException : public std::out_of_range{
+		class GradeTooHighException : public std::exception{
 			public:
-				GradeTooHighException(std::string error_msg);
+				const char * what () const throw ();
 		};
-		class GradeTooLowException : public std::out_of_range{
+		class GradeTooLowException : public std::exception{
 			public:
-				GradeTooLowException(std::string error_msg);
+				const char * what () const throw ();
 		};
 		
 	private:
- 		const	std::string		_name;
-		unsigned int	_grade;
+ 		const std::string	_name;
+		unsigned int		_grade;
 
 };
 
