@@ -14,6 +14,7 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
 
 void	shrubberyCreationFormTest(){
@@ -105,27 +106,22 @@ void	bureaucratTest(){
 	catch (std::exception & e){
 		std::cout << RED << "\tcatch: " << e.what() << RESET << std::endl;
 	}
-
-
 }
 
-void	testCanonicalForm(){
+void	internTest(){
+	
+	std::cout << std::endl << CYAN << "----- Intern Test----- " << RESET << std::endl;
+	
+	Intern intern = new Intern();
+	ShrubberyCreationForm SCForm = intern.makeForm("ShrubberyCreationForm", "home");
+	RobotomyRequestForm RRForm = intern.makeForm("RobotomyRequestForm", "school");
+	PresidentialPardonForm PPForm = intern.makeForm("PresidentialPardonForm", "street");
+	intern.makeForm("WrongForm", "street");
 
-	std::cout << std::endl << std::endl << CYAN << "----- Test canonical form ----- " << RESET << std::endl;
-	try {
-		ShrubberyCreationForm SCForm = ShrubberyCreationForm("Home");
-		RobotomyRequestForm RRForm = RobotomyRequestForm("News");
-		PresidentialPardonForm PPForm = PresidentialPardonForm("Work");
-		std::cout << std::endl << MAGENTA << "Check << operator" << RESET << std::endl;	
-		std::cout << SCForm << std::endl;
-		std::cout << RRForm << std::endl;
-		std::cout << PPForm << std::endl;
-	}
-	catch (std::out_of_range & e){
-		std::cout << RED << "\tcatch: " << e.what() << RESET << std::endl;
-	}
+	std::cout << SCForm << std::endl;
+	std::cout << RRForm << std::endl;
+	std::cout << PPForm << std::endl;
 }
-
 
 int main() {
 	
@@ -135,7 +131,7 @@ int main() {
 
 	bureaucratTest();
 
-	testCanonicalForm();
+	internTest();
 
 	return (0);
 }

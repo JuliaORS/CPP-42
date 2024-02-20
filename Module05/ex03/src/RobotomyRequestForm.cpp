@@ -5,20 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/19 20:53:38 by julolle-          #+#    #+#             */
-/*   Updated: 2024/02/19 20:53:38 by julolle-         ###   ########.fr       */
+/*   Created: 2024/02/19 20:52:04 by julolle-          #+#    #+#             */
+/*   Updated: 2024/02/19 20:52:04 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 
 RobotomyRequestForm::RobotomyRequestForm() : \
-	AForm("form", MIN_GRADE_SIGN_RR, MIN_GRADE_EXECUTE_RR), _target("undefinedTarget") {
+	AForm("RobotomyRequestForm", MIN_GRADE_SIGN_RR, MIN_GRADE_EXECUTE_RR), _target("undefinedTarget") {
 	std::cout << "RobotomyRequestForm default construcor called." << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string & target) : \
-	AForm("form", MIN_GRADE_SIGN_RR, MIN_GRADE_EXECUTE_RR), _target(target) {
+	AForm("RobotomyRequestForm", MIN_GRADE_SIGN_RR, MIN_GRADE_EXECUTE_RR), _target(target) {
 
 	std::cout << this->_target << " RobotomyRequestForm construcor called." << std::endl;
 }
@@ -53,6 +53,11 @@ std::string	RobotomyRequestForm::getTarget() const {
 void	RobotomyRequestForm::executeConcreteForm() const{
 	std::cout << GREEN << "trrrr trrrr\nbrrr brrr" << std::endl;
 	std::cout << getTarget() + " has been robotomized successfully 50% of the time." << RESET << std::endl;
+}
+
+AForm *	RobotomyRequestForm::clone() {
+	AForm* clone = new RobotomyRequestForm(*this);
+	return (clone);
 }
 
 //operador "<<" 

@@ -33,6 +33,7 @@ class ShrubberyCreationForm : public AForm{
 		std::string 	getTarget() const;
 
 		void	executeConcreteForm() const;
+		AForm*	clone();
 
 	private:
  		const std::string	_target;

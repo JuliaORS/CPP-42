@@ -13,12 +13,12 @@
 #include "PresidentialPardonForm.hpp"
 
 PresidentialPardonForm::PresidentialPardonForm() : \
-	AForm("form", MIN_GRADE_SIGN_PP, MIN_GRADE_EXECUTE_PP), _target("undefinedTarget") {
+	AForm("PresidentialPardonForm", MIN_GRADE_SIGN_PP, MIN_GRADE_EXECUTE_PP), _target("undefinedTarget") {
 	std::cout << "PresidentialPardonForm default construcor called." << std::endl;
 }
 
 PresidentialPardonForm::PresidentialPardonForm(const std::string & target) : \
-	AForm("form", MIN_GRADE_SIGN_PP, MIN_GRADE_EXECUTE_PP), _target(target) {
+	AForm("PresidentialPardonForm", MIN_GRADE_SIGN_PP, MIN_GRADE_EXECUTE_PP), _target(target) {
 	std::cout << this->_target << " PresidentialPardonForm construcor called." << std::endl;
 }
 

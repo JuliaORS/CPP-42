@@ -43,14 +43,14 @@ AForm *	Intern::makeForm(const std::string & formName, const std::string & targe
 
 	AForm*	forms[] = {&SCForm, &RRForm, &PPForm};
 	
-	for(int i=0; i<3; i++ ){
-		if (formName.compare(forms[i]->getName()) == 0)
+	for(int i=0; i<3; i++){
+		if (formName.compare(forms[i]->getName()))
 		{
 			std::cout << GREEN << "Intern creates " << formName << RESET << std::endl;
 			return (forms[i]->clone());
 		}
 	}
-	std::cout << "Form doesn't exist." << std::endl;
+	std::cout << RED << "Form doesn't exist." << RESET << std::endl;
 	return (NULL);
 }
 

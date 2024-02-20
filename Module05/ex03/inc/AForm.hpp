@@ -42,6 +42,7 @@ class AForm{
 		void			beSigned(Bureaucrat & bureaucrat);
 		void			execute(Bureaucrat const & executor) const;
 		virtual void	executeConcreteForm() const = 0;
+		virtual AForm*	clone() = 0;
 
 		class GradeTooHighException : public std::out_of_range{
 			public:

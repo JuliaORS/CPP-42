@@ -13,12 +13,12 @@
 #include "RobotomyRequestForm.hpp"
 
 RobotomyRequestForm::RobotomyRequestForm() : \
-	AForm("form", MIN_GRADE_SIGN_RR, MIN_GRADE_EXECUTE_RR), _target("undefinedTarget") {
+	AForm("RobotomyRequestForm", MIN_GRADE_SIGN_RR, MIN_GRADE_EXECUTE_RR), _target("undefinedTarget") {
 	std::cout << "RobotomyRequestForm default construcor called." << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string & target) : \
-	AForm("form", MIN_GRADE_SIGN_RR, MIN_GRADE_EXECUTE_RR), _target(target) {
+	AForm("RobotomyRequestForm", MIN_GRADE_SIGN_RR, MIN_GRADE_EXECUTE_RR), _target(target) {
 
 	std::cout << this->_target << " RobotomyRequestForm construcor called." << std::endl;
 }

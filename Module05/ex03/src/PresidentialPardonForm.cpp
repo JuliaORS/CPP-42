@@ -5,20 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/19 20:53:34 by julolle-          #+#    #+#             */
-/*   Updated: 2024/02/19 20:53:34 by julolle-         ###   ########.fr       */
+/*   Created: 2024/02/19 20:51:59 by julolle-          #+#    #+#             */
+/*   Updated: 2024/02/19 20:51:59 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 
 PresidentialPardonForm::PresidentialPardonForm() : \
-	AForm("form", MIN_GRADE_SIGN_PP, MIN_GRADE_EXECUTE_PP), _target("undefinedTarget") {
+	AForm("PresidentialPardonForm", MIN_GRADE_SIGN_PP, MIN_GRADE_EXECUTE_PP), _target("undefinedTarget") {
 	std::cout << "PresidentialPardonForm default construcor called." << std::endl;
 }
 
 PresidentialPardonForm::PresidentialPardonForm(const std::string & target) : \
-	AForm("form", MIN_GRADE_SIGN_PP, MIN_GRADE_EXECUTE_PP), _target(target) {
+	AForm("PresidentialPardonForm", MIN_GRADE_SIGN_PP, MIN_GRADE_EXECUTE_PP), _target(target) {
 	std::cout << this->_target << " PresidentialPardonForm construcor called." << std::endl;
 }
 
@@ -51,6 +51,11 @@ std::string	PresidentialPardonForm::getTarget() const {
 //FUNCTIONS
 void	PresidentialPardonForm::executeConcreteForm() const{
 	std::cout << GREEN << getTarget() + " has been pardoned by Zaphod Beeblebrox." << RESET << std::endl;
+}
+
+AForm *	PresidentialPardonForm::clone() {
+	AForm* clone = new PresidentialPardonForm(*this);
+	return (clone);
 }
 
 //operador "<<" 

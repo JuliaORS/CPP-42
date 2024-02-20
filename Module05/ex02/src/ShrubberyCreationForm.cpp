@@ -13,12 +13,12 @@
 #include "ShrubberyCreationForm.hpp"
 
 ShrubberyCreationForm::ShrubberyCreationForm() : \
-	AForm("form", MIN_GRADE_SIGN_SC, MIN_GRADE_EXECUTE_SC), _target("undefinedTarget") {
+	AForm("ShrubberyCreationForm", MIN_GRADE_SIGN_SC, MIN_GRADE_EXECUTE_SC), _target("undefinedTarget") {
 	std::cout << "ShrubberyCreationForm default construcor called." << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string & target) : \
-	AForm("form", MIN_GRADE_SIGN_SC, MIN_GRADE_EXECUTE_SC), _target(target) {
+	AForm("ShrubberyCreationForm", MIN_GRADE_SIGN_SC, MIN_GRADE_EXECUTE_SC), _target(target) {
 	std::cout << this->_target << " ShrubberyCreationForm construcor called." << std::endl;
 }
 

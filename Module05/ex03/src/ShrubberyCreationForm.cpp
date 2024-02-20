@@ -5,20 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/19 20:53:43 by julolle-          #+#    #+#             */
-/*   Updated: 2024/02/19 20:53:43 by julolle-         ###   ########.fr       */
+/*   Created: 2024/02/19 20:52:08 by julolle-          #+#    #+#             */
+/*   Updated: 2024/02/19 20:52:08 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 
 ShrubberyCreationForm::ShrubberyCreationForm() : \
-	AForm("form", MIN_GRADE_SIGN_SC, MIN_GRADE_EXECUTE_SC), _target("undefinedTarget") {
+	AForm("ShrubberyCreationForm", MIN_GRADE_SIGN_SC, MIN_GRADE_EXECUTE_SC), _target("undefinedTarget") {
 	std::cout << "ShrubberyCreationForm default construcor called." << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string & target) : \
-	AForm("form", MIN_GRADE_SIGN_SC, MIN_GRADE_EXECUTE_SC), _target(target) {
+	AForm("ShrubberyCreationForm", MIN_GRADE_SIGN_SC, MIN_GRADE_EXECUTE_SC), _target(target) {
 	std::cout << this->_target << " ShrubberyCreationForm construcor called." << std::endl;
 }
 
@@ -74,6 +74,11 @@ void	ShrubberyCreationForm::executeConcreteForm() const{
 	}
 	std::cout << GREEN << "Creating trees..." << RESET << std::endl;
 	addTreeFile(outfile);
+}
+
+AForm*	ShrubberyCreationForm::clone() {
+	AForm* clone = new ShrubberyCreationForm(*this);
+	return (clone);
 }
 
 //operador "<<" 
