@@ -14,22 +14,18 @@
 
 PresidentialPardonForm::PresidentialPardonForm() : \
 	AForm("PresidentialPardonForm", MIN_GRADE_SIGN_PP, MIN_GRADE_EXECUTE_PP), _target("undefinedTarget") {
-	std::cout << "PresidentialPardonForm default construcor called." << std::endl;
 }
 
 PresidentialPardonForm::PresidentialPardonForm(const std::string & target) : \
 	AForm("PresidentialPardonForm", MIN_GRADE_SIGN_PP, MIN_GRADE_EXECUTE_PP), _target(target) {
-	std::cout << this->_target << " PresidentialPardonForm construcor called." << std::endl;
 }
 
 //copy constructor
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm & src){
 	*this = src;
-	std::cout << "PresidentialPardonForm copy construcor called." <<std::endl;
 }
 
 PresidentialPardonForm::~PresidentialPardonForm(){
-	std::cout << "PresidentialPardonForm Destructor called." << std::endl;
 }
 
 //operator "="
@@ -39,7 +35,6 @@ PresidentialPardonForm & PresidentialPardonForm::operator=(const PresidentialPar
 		this->setGradeToSign(src.getGradeToSign());
 		this->setGradeToExecute(src.getGradeToExecute());
 	}
-	std::cout << "PresidentialPardonForm copy assignment operator called." << std::endl;
 	return (*this);
 }
 
@@ -59,10 +54,10 @@ AForm *	PresidentialPardonForm::clone() {
 }
 
 //operador "<<" 
-std::ostream &	operator<<(std::ostream & out, const PresidentialPardonForm & SCform){
-	out << YELLOW << "[" << SCform.getTarget() << "] Presidential Pardon Form | Grade to sign: " \
-		 << SCform.getGradeToSign() << " | Grade to execute: " << SCform.getGradeToExecute();
-	if (SCform.getIsSigned())
+std::ostream &	operator<<(std::ostream & out, const PresidentialPardonForm & PPform){
+	out << YELLOW << "[" << PPform.getTarget() << "] Presidential Pardon Form | Grade to sign: " \
+		 << PPform.getGradeToSign() << " | Grade to execute: " << PPform.getGradeToExecute();
+	if (PPform.getIsSigned())
 		out << " | Form is Signed." << RESET << std::endl;
 	else
 		out << " | form is not signed." << RESET << std::endl;

@@ -13,7 +13,6 @@
 #include "Bureaucrat.hpp" 
 
 Bureaucrat::Bureaucrat() : _name("uname"), _grade(MAX_GRADE) {
-	std::cout << "Bureaucrat default construcor called." << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const std::string & name, const unsigned int grade) : _name(name) {
@@ -23,17 +22,14 @@ Bureaucrat::Bureaucrat(const std::string & name, const unsigned int grade) : _na
 		throw Bureaucrat::GradeTooLowException();
 	else
 		this->_grade = grade;
-	std::cout << this->_name << " Bureaucrat construcor called." << std::endl;
 }
 
 //copy constructor
 Bureaucrat::Bureaucrat(const Bureaucrat & src){
 	*this = src;
-	std::cout << "Bureaucrat copy construcor called." <<std::endl;
 }
 
 Bureaucrat::~Bureaucrat(){
-	std::cout << this->_name << " Bureaucrat Destructor called." << std::endl;
 }
 
 //operator "="
@@ -41,7 +37,6 @@ Bureaucrat & Bureaucrat::operator=(const Bureaucrat & src) {
 	if (this != &src) {
 		this->_grade = src.getGrade();
 	}
-	std::cout << "Bureaucrat copy assignment operator called." << std::endl;
 	return (*this);
 }
 
@@ -89,7 +84,7 @@ void	Bureaucrat::signForm(AForm & form){
 	else {
 		try{
 			form.beSigned(*this);
-			std::cout << GREEN << form.getName() << " is signed by " << this->_name << RESET << std::endl;  
+			std::cout << form.getName() << " is signed by " << this->_name<< std::endl;  
 		}
 		catch (std::out_of_range & e){
 			std::cout << RED << this->_name << " could not sign " << form.getName() << \
@@ -101,7 +96,7 @@ void	Bureaucrat::signForm(AForm & form){
 void	Bureaucrat::executeForm(AForm const & form){
 	try{
 		form.execute(*this);
-		std::cout << GREEN << _name << " executed " << form.getName() << RESET << std::endl; 
+		std::cout << _name << " executed " << form.getName() << std::endl; 
 	}
 	catch (std::out_of_range & e){
 		std::cout << RED << this->_name << " could not execute " << form.getName() << \

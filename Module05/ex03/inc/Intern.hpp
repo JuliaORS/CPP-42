@@ -31,6 +31,4 @@ class Intern {
 		AForm*	makeForm(const  std::string & nameForm, const std::string & targetForm) const;
 };
 
-std::ostream &	operator<<(std::ostream & out, const Intern & intern);
-
 #endif

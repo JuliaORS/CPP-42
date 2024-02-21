@@ -13,7 +13,6 @@
 #include "Bureaucrat.hpp" 
 
 Bureaucrat::Bureaucrat() : _name("uname"), _grade(MAX_GRADE) {
-	std::cout << "Bureaucrat default construcor called." << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const std::string & name, const unsigned int grade) : _name(name) {
@@ -23,17 +22,14 @@ Bureaucrat::Bureaucrat(const std::string & name, const unsigned int grade) : _na
 		throw Bureaucrat::GradeTooLowException();
 	else
 		this->_grade = grade;
-	std::cout << this->_name << " Bureaucrat construcor called." << std::endl;
 }
 
 //copy constructor
 Bureaucrat::Bureaucrat(const Bureaucrat & src){
 	*this = src;
-	std::cout << "Bureaucrat copy construcor called." <<std::endl;
 }
 
 Bureaucrat::~Bureaucrat(){
-	std::cout << this->_name << " Bureaucrat Destructor called." << std::endl;
 }
 
 //operator "="
@@ -41,7 +37,6 @@ Bureaucrat & Bureaucrat::operator=(const Bureaucrat & src) {
 	if (this != &src) {
 		this->_grade = src.getGrade();
 	}
-	std::cout << "Bureaucrat copy assignment operator called." << std::endl;
 	return (*this);
 }
 

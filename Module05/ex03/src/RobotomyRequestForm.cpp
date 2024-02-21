@@ -14,23 +14,18 @@
 
 RobotomyRequestForm::RobotomyRequestForm() : \
 	AForm("RobotomyRequestForm", MIN_GRADE_SIGN_RR, MIN_GRADE_EXECUTE_RR), _target("undefinedTarget") {
-	std::cout << "RobotomyRequestForm default construcor called." << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string & target) : \
 	AForm("RobotomyRequestForm", MIN_GRADE_SIGN_RR, MIN_GRADE_EXECUTE_RR), _target(target) {
-
-	std::cout << this->_target << " RobotomyRequestForm construcor called." << std::endl;
 }
 
 //copy constructor
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm & src){
 	*this = src;
-	std::cout << "RobotomyRequestForm copy construcor called." <<std::endl;
 }
 
 RobotomyRequestForm::~RobotomyRequestForm(){
-	std::cout << "RobotomyRequestForm Destructor called." << std::endl;
 }
 
 //operator "="
@@ -40,7 +35,6 @@ RobotomyRequestForm & RobotomyRequestForm::operator=(const RobotomyRequestForm &
 		this->setGradeToSign(src.getGradeToSign());
 		this->setGradeToExecute(src.getGradeToExecute());
 	}
-	std::cout << "RobotomyRequestForm copy assignment operator called." << std::endl;
 	return (*this);
 }
 
@@ -61,10 +55,10 @@ AForm *	RobotomyRequestForm::clone() {
 }
 
 //operador "<<" 
-std::ostream &	operator<<(std::ostream & out, const RobotomyRequestForm & SCform){
-	out << YELLOW << "[" << SCform.getTarget() << "] Robotomy request Form | Grade to sign: " \
-		<< SCform.getGradeToSign() << " | Grade to execute: " << SCform.getGradeToExecute();
-	if (SCform.getIsSigned())
+std::ostream &	operator<<(std::ostream & out, const RobotomyRequestForm & RRform){
+	out << YELLOW << "[" << RRform.getName() << "] Target: " << RRform.getTarget() << "| Grade to sign: " \
+		<< RRform.getGradeToSign() << " | Grade to execute: " << RRform.getGradeToExecute();
+	if (RRform.getIsSigned())
 		out << " | Form is Signed." << std::endl;
 	else
 		out << " | form is not signed." <<std::endl;

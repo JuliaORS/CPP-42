@@ -40,6 +40,6 @@ class PresidentialPardonForm : public AForm{
 
 };
 
-std::ostream &	operator<<(std::ostream & out, const PresidentialPardonForm & SCform);
+std::ostream &	operator<<(std::ostream & out, const PresidentialPardonForm & PPform);
 
 #endif

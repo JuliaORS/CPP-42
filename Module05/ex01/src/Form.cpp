@@ -14,7 +14,6 @@
 
 Form::Form() : _name("uname"), _isSigned(false), _gradeToSign(MAX_GRADE),\
 	 _gradeToExcetute(MAX_GRADE){
-	std::cout << "Form default construcor called." << std::endl;
 }
 
 Form::Form(const std::string & name, const unsigned int gradeToSign, \
@@ -27,18 +26,14 @@ Form::Form(const std::string & name, const unsigned int gradeToSign, \
 		this->_gradeToSign = gradeToSign;
 		this->_gradeToExcetute = gradeToExecute;
 	}
-
-	std::cout << this->_name << " Form construcor called." << std::endl;
 }
 
 //copy constructor
 Form::Form(const Form & src){
 	*this = src;
-	std::cout << "Form copy construcor called." <<std::endl;
 }
 
 Form::~Form(){
-	std::cout << this->_name << " Form Destructor called." << std::endl;
 }
 
 //operator "="
@@ -48,7 +43,6 @@ Form & Form::operator=(const Form & src) {
 		this->_gradeToSign = src.getGradeToSign();
 		this->_gradeToExcetute = src.getGradeToExecute();
 	}
-	std::cout << "Form copy assignment operator called." << std::endl;
 	return (*this);
 }
 

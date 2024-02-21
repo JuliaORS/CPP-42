@@ -14,23 +14,18 @@
 
 RobotomyRequestForm::RobotomyRequestForm() : \
 	AForm("RobotomyRequestForm", MIN_GRADE_SIGN_RR, MIN_GRADE_EXECUTE_RR), _target("undefinedTarget") {
-	std::cout << "RobotomyRequestForm default construcor called." << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string & target) : \
 	AForm("RobotomyRequestForm", MIN_GRADE_SIGN_RR, MIN_GRADE_EXECUTE_RR), _target(target) {
-
-	std::cout << this->_target << " RobotomyRequestForm construcor called." << std::endl;
 }
 
 //copy constructor
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm & src){
 	*this = src;
-	std::cout << "RobotomyRequestForm copy construcor called." <<std::endl;
 }
 
 RobotomyRequestForm::~RobotomyRequestForm(){
-	std::cout << "RobotomyRequestForm Destructor called." << std::endl;
 }
 
 //operator "="
@@ -40,7 +35,6 @@ RobotomyRequestForm & RobotomyRequestForm::operator=(const RobotomyRequestForm &
 		this->setGradeToSign(src.getGradeToSign());
 		this->setGradeToExecute(src.getGradeToExecute());
 	}
-	std::cout << "RobotomyRequestForm copy assignment operator called." << std::endl;
 	return (*this);
 }
 

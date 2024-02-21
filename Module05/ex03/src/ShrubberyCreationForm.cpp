@@ -14,22 +14,18 @@
 
 ShrubberyCreationForm::ShrubberyCreationForm() : \
 	AForm("ShrubberyCreationForm", MIN_GRADE_SIGN_SC, MIN_GRADE_EXECUTE_SC), _target("undefinedTarget") {
-	std::cout << "ShrubberyCreationForm default construcor called." << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string & target) : \
 	AForm("ShrubberyCreationForm", MIN_GRADE_SIGN_SC, MIN_GRADE_EXECUTE_SC), _target(target) {
-	std::cout << this->_target << " ShrubberyCreationForm construcor called." << std::endl;
 }
 
 //copy constructor
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm & src){
 	*this = src;
-	std::cout << "ShrubberyCreationForm copy construcor called." <<std::endl;
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm(){
-	std::cout << "ShrubberyCreationForm Destructor called." << std::endl;
 }
 
 //operator "="
@@ -39,7 +35,6 @@ ShrubberyCreationForm & ShrubberyCreationForm::operator=(const ShrubberyCreation
 		this->setGradeToSign(src.getGradeToSign());
 		this->setGradeToExecute(src.getGradeToExecute());
 	}
-	std::cout << "ShrubberyCreationForm copy assignment operator called." << std::endl;
 	return (*this);
 }
 

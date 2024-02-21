@@ -112,15 +112,23 @@ void	internTest(){
 	
 	std::cout << std::endl << CYAN << "----- Intern Test----- " << RESET << std::endl;
 	
-	Intern intern = new Intern();
-	ShrubberyCreationForm SCForm = intern.makeForm("ShrubberyCreationForm", "home");
-	RobotomyRequestForm RRForm = intern.makeForm("RobotomyRequestForm", "school");
-	PresidentialPardonForm PPForm = intern.makeForm("PresidentialPardonForm", "street");
-	intern.makeForm("WrongForm", "street");
+	Intern intern = Intern();
+	
+	AForm *SCForm = intern.makeForm("ShrubberyCreationForm", "home");
+	AForm *RRForm = intern.makeForm("RobotomyRequestForm", "school");
+	AForm *PPForm = intern.makeForm("PresidentialPardonForm", "street");
+	AForm *WForm = intern.makeForm("WrongForm", "street");
+	
+    Intern  someRandomIntern;
+    AForm*   rrf;
+	rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+	
+	delete SCForm;
+	delete RRForm;
+	delete PPForm;
+	delete WForm;
+	delete rrf;
 
-	std::cout << SCForm << std::endl;
-	std::cout << RRForm << std::endl;
-	std::cout << PPForm << std::endl;
 }
 
 int main() {
