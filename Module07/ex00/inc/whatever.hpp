@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/28 15:09:54 by julolle-          #+#    #+#             */
-/*   Updated: 2024/02/28 15:09:54 by julolle-         ###   ########.fr       */
+/*   Created: 2024/02/28 12:11:33 by julolle-          #+#    #+#             */
+/*   Updated: 2024/02/28 12:11:33 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@
 
 template <typename T>
 void swap(T& a, T& b) {
-	T tmp;
+	T	tmp;
+
 	tmp = a;
 	a = b;
 	b = tmp;

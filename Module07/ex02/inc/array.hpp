@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/28 15:14:52 by julolle-          #+#    #+#             */
-/*   Updated: 2024/02/28 15:14:52 by julolle-         ###   ########.fr       */
+/*   Created: 2024/02/28 12:14:40 by julolle-          #+#    #+#             */
+/*   Updated: 2024/02/28 12:14:40 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,23 @@
 
 # include <iostream>
 
-template<typename T>
+template <class T>
 class Array {
+	
 	public:
-    	Array();
-        Array(int n);
-};
+		Array();
+		Array(unsigned int n);
+		Array(const Array & src);
+		~Array();
 
-template<>
-class Array<int> {
-public:
-    void print() {
-        std::cout << "Specialized version for int" << std::endl;
-    }
+		Array &	operator=(const Array & src);
+		T & 	operator[](unsigned int n);
+
+		unsigned int	size() const;
+
+	private:
+		T*				_arr;
+		unsigned int	_n;
 };
 
 #endif

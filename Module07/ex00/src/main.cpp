@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/28 15:10:00 by julolle-          #+#    #+#             */
-/*   Updated: 2024/02/28 15:10:00 by julolle-         ###   ########.fr       */
+/*   Created: 2024/02/28 12:11:52 by julolle-          #+#    #+#             */
+/*   Updated: 2024/02/28 12:11:52 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,9 @@ int main() {
 	std::string d="chaine2";
 
 	::swap(c,d); 
-	std::cout << "c = " << c << ", d = " << d << std::endl;
+	std::cout<<"c = " << c << ", d = " << d << std::endl;
 	std::cout << "min(c,d) = " << ::min(c,d) << std::endl; 
 	std::cout << "max(c,d) = " << ::max(c,d) << std::endl;
-
 
 	return (0);
 }
