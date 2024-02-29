@@ -26,31 +26,41 @@ Array<T>::Array(unsigned int n) {
 
 //copy constructor
 template <class T>
-Array<T>::Array(const Array & src){
-	*this = src; //check deep copy
+Array<T>::Array(const Array<T> & src){
+	this->_n = src._n;
+	if (src._n != 0){
+		this->_arr = new T[src._n];
+		for(unsigned int i=0; i < src._n; i++){
+			this->_arr[i] = src._arr[i];
+		}
+	}
+	else {
+		this->_arr = NULL;
+	}
 }
 
 template <class T>
 Array<T>::~Array(){
-	if (this->_arr)
+	if (this->_n != 0)
 		delete [] _arr; 
 }
 
 //operator "="
 template <class T>
-Array<T> & Array<T>::operator=(const Array & src) {
-	if (this->_arr != NULL){
-		//delete [] _arr;
-		//this->_arr = NULL;
+Array<T> & Array<T>::operator=(const Array<T> & src) {
+	if (this->_n != 0){
+		delete [] _arr;
+		this->_arr = NULL;
 	}
 	this->_n = src._n;
-
-	if (src._arr){
+	if (src._n != 0){
 		this->_arr = new T[src._n];
 		for(unsigned int i=0; i < src._n; i++){
 			this->_arr[i] = src._arr[i];
 		}
-
+	}
+	else {
+		this->_arr = NULL;
 	}
 	return (*this); //check deep copy
 }

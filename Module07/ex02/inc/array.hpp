@@ -14,6 +14,8 @@
 # define ARRAY_HPP
 
 # include <iostream>
+# define  CYAN "\033[36m"
+# define RESET "\033[0m"
 
 template <class T>
 class Array {

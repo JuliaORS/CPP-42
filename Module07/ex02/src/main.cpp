@@ -29,7 +29,7 @@ void	fillArrayInt(){
 	unsigned int	ARRAY_SIZE = 6;
 	Array<int> arr(ARRAY_SIZE);
 
-	std::cout << std::endl << "----- Fill the array with ints ----- " << std::endl;
+	std::cout << std::endl << CYAN << "----- Fill the array with ints ----- " << RESET << std::endl;
 	try{
 		for(unsigned int i=0; i < arr.size(); i++){
 			arr[i] = i;
@@ -39,13 +39,13 @@ void	fillArrayInt(){
 		std::cout << "Index is out of range" << std:: endl;
 	}
 
-	std::cout << std::endl << "----- Try to fill array out of range ----- " << std::endl;
+	std::cout << std::endl << CYAN << "----- Try to fill array out of range ----- " << RESET << std::endl;
 	try{
 		arr[ARRAY_SIZE] = 42;
 	} catch(std::exception e){
 		std::cout << "Index is out of range" << std:: endl;
 	}
-	std::cout << std::endl << "----- Print array ----- " << std::endl;
+	std::cout << std::endl << CYAN << "----- Print array ----- " << RESET << std::endl;
 	printArray(arr);
 }
 
@@ -54,7 +54,7 @@ void	fillArrayString(){
 	unsigned int	ARRAY_SIZE = 6;
 	Array<std::string> arr(ARRAY_SIZE);
 
-	std::cout << std::endl << "----- Fill the array with strings ----- " << std::endl;
+	std::cout << std::endl << CYAN << "----- Fill the array with strings ----- " << RESET << std::endl;
 	try{
 		for(unsigned int i=0; i < arr.size(); i++){
 			arr[i] = "hello" + std::to_string(i);
@@ -64,23 +64,23 @@ void	fillArrayString(){
 		std::cout << "Index is out of range" << std:: endl;
 	}
 
-	std::cout << std::endl << "----- Try to fill array out of range ----- " << std::endl;
+	std::cout << std::endl << CYAN << "----- Try to fill array out of range ----- " << RESET << std::endl;
 	try{
 		arr[ARRAY_SIZE] = "byebye";
 	} catch(std::exception e){
 		std::cout << "Index is out of range" << std:: endl;
 	}
 
-	std::cout << std::endl << "----- Print array ----- " << std::endl;
+	std::cout << std::endl << CYAN << "----- Print array ----- " << RESET << std::endl;
 	printArray(arr);
 }
 
-void	checkDeepCopyArray(){
+void	testDeepCopyArray(){
 	
 	int	ARRAY_SIZE = 4;
 	Array<int> arr(ARRAY_SIZE);
 
-	std::cout << std::endl << "----- Fill the array ----- " << std::endl;
+	std::cout << std::endl << CYAN << "----- Fill the array ----- " << RESET << std::endl;
 	
 	try{
 		for(int i=0; i < ARRAY_SIZE; i++){
@@ -91,27 +91,30 @@ void	checkDeepCopyArray(){
 		std::cout << "Index is out of range" << std:: endl;
 	}
 
-	std::cout << std::endl << "----- Test copy constructor ----- " << std::endl;
+	std::cout << std::endl << CYAN << "----- Test copy constructor ----- " << RESET << std::endl;
 	Array<int> arrCopy = arr;
 
-	std::cout << std::endl << "----- Print copied array ----- " << std::endl;
+	std::cout << std::endl << CYAN << "----- Print original array ----- " << RESET << std::endl;
+	printArray(arr);
+
+	std::cout << std::endl << CYAN << "----- Print copied array ----- " << RESET << std::endl;
 	printArray(arrCopy);
 
-	std::cout << std::endl << "----- Modify first element ----- " << std::endl;
+	std::cout << std::endl << CYAN << "----- Modify first element ----- " << RESET << std::endl;
 	try{
 		arrCopy[0] = 42;
 	} catch(std::exception e){
 		std::cout << "Index is out of range" << std:: endl;
 	}
 
-	std::cout << std::endl << "----- Print original array ----- " << std::endl;
+	std::cout << std::endl << CYAN << "----- Print original array ----- " << RESET << std::endl;
 	printArray(arr);
 
-	std::cout << std::endl << "----- Print copied array ----- " << std::endl;
+	std::cout << std::endl << CYAN << "----- Print copied array ----- " << RESET << std::endl;
 	printArray(arrCopy);	
 
 	arrCopy = arr;
-	std::cout << std::endl << "----- Print copied array ----- " << std::endl;
+	std::cout << std::endl << CYAN << "----- Print copied array ----- " << RESET << std::endl;
 	printArray(arrCopy);
 
 }
@@ -122,7 +125,8 @@ int main() {
 	fillArrayInt();
 	fillArrayString();
 
-	checkDeepCopyArray();
+	testDeepCopyArray();
+	
 
 	return (0);
 }
