@@ -16,6 +16,7 @@
 # include <iostream>
 # define  CYAN "\033[36m"
 # define RESET "\033[0m"
+# define RED "\033[31m"
 
 template <class T>
 class Array {
