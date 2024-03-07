@@ -23,9 +23,8 @@ using namespace std;
 template <typename T>
 int	easyfind(const T& cont, int nb) {
 	
-	typename T::const_iterator it = std::find(cont.begin(), cont.end(), nb);
-	if (it != cont.end()){
-		return *it;
+	if (std::find(cont.begin(), cont.end(), nb) != cont.end()){
+		return nb;
 	}
 	else{
 		throw std::exception();
