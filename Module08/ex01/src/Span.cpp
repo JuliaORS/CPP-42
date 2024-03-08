@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serializer.cpp                                     :+:      :+:    :+:   */
+/*   Span.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 11:30:07 by julolle-          #+#    #+#             */
-/*   Updated: 2024/02/28 11:30:07 by julolle-         ###   ########.fr       */
+/*   Updated: 2024/03/08 13:53:10 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,18 +52,16 @@ void	Span::addNumber(int nb) {
 int	Span::shortestSpan(){
 	if (this->_span.empty() || this->_span.size() < 2)
 		throw std::exception();
-	else {
-		
-		
-		for (int nb : this->_span) {
 
-       		std::cout << num << " ";
-    	}
-		
-		std::multiset<int>::iterator first = this->_span.begin();
-        std::multiset<int>::iterator last = this->_span.end();
-		
+	std::multiset<int>::iterator it = ++(this->_span.begin());
+	std::multiset<int>::iterator prev = this->_span.begin();
+	int diff = *(--(this->_span.end())) - *it;
+	for (; it != this->_span.end(); it++) {
+		if (*it - *prev < diff)
+			diff = *it - *prev;
+		prev++;
 	}
+	return diff;
 }
 
 int	Span::longestSpan(){
@@ -72,6 +70,7 @@ int	Span::longestSpan(){
 	else {
 		std::multiset<int>::iterator first = this->_span.begin();
         std::multiset<int>::iterator last = this->_span.end();
+		last--;
 		return (*last - *first);
 	}
 }	

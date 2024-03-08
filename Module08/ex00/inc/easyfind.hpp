@@ -21,14 +21,13 @@ using namespace std;
 # define RED "\033[31m"
 
 template <typename T>
-int	easyfind(const T& cont, int nb) {
+typename T::iterator	easyfind(const T& cont, int nb) {
 	
-	if (std::find(cont.begin(), cont.end(), nb) != cont.end()){
-		return nb;
-	}
-	else{
+	typename T::iterator it = std::find(cont.begin(), cont.end(), nb);
+	if (it != cont.end())
+		return it;
+	else
 		throw std::exception();
-	}	
 }
 
 #endif

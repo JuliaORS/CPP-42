@@ -15,7 +15,7 @@ NAME		:= span
 HEADER		:= ./inc/
 
 SRC_PATH	:= ./src/
-SRC_FILES	:= main.cpp span.cpp
+SRC_FILES	:= main.cpp Span.cpp
 SRC			:= $(addprefix $(SRC_PATH),$(SRC_FILES))
 
 OBJ_PATH	:= objs/
