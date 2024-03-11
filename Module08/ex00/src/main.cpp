@@ -14,23 +14,29 @@
 #include <array>
 #include <vector>
 
-void	arrayTest(){
-	/*const int	ARRAY_SIZE = 6;
-	std::array<int, ARRAY_SIZE> arr = {0, 1, 2, 3, 4, 5};
+void	vectorTest(){
+
+	std::vector<int> vect;
+	vect.push_back(1);
+	vect.push_back(4);
+	vect.push_back(6);
+	vect.push_back(64);
+	vect.push_back(-123);
+
 
 	std::cout << std::endl << "----- existing number ----- " << std::endl;
 	try{
-		std::array<int, ARRAY_SIZE>::iterator it = easyfind(arr, 3);
+		std::vector<int>::const_iterator it  = easyfind(vect, 4);
 		std::cout << "Number " << *it << std:: endl;
 	}
 	catch (std::exception e) {
 		std::cout << RED << "Not found" << RESET << std:: endl;
-	}*/
+	}
 
-	/*std::cout << std::endl << "----- not existing number ----- " << std::endl;
+	std::cout << std::endl << "----- not existing number ----- " << std::endl;
 	try{
-		std::iterator it = easyfind(arr, 17);
-		std::cout << "Number " << it << std:: endl;
+		std::vector<int>::const_iterator it  = easyfind(vect, 17);
+		std::cout << "Number " << *it << std:: endl;
 	}
 	catch (std::exception e) {
 		std::cout << RED << "Not found" << RESET << std:: endl;
@@ -38,56 +44,17 @@ void	arrayTest(){
 
 	std::cout << std::endl << "----- not existing number ----- " << std::endl;
 	try{
-		std::iterator it = easyfind(arr, -347437374);
-		std::cout << "Number " << it << std:: endl;
-	}
-	catch (std::exception e) {
-		std::cout << RED << "Not found" << RESET << std:: endl;
-	}*/
-}
-
-void	vectorTest(){
-
-	std::vector<int> vector;
-	vector.push_back(1);
-	vector.push_back(4);
-	vector.push_back(6);
-	vector.push_back(64);
-	vector.push_back(-123);
-
-	std::cout << std::endl << "----- existing number ----- " << std::endl;
-	try{
-		std::vector<int>::iterator it  = easyfind(vector, 3);
-		std::cout << "Number " << it << std:: endl;
+		std::vector<int>::const_iterator it  = easyfind(vect, -2114414);
+		std::cout << "Number " << *it << std:: endl;
 	}
 	catch (std::exception e) {
 		std::cout << RED << "Not found" << RESET << std:: endl;
 	}
-/*
-	std::cout << std::endl << "----- not existing number ----- " << std::endl;
-	try{
-		std::iterator it  = easyfind(vector, 17);
-		std::cout << "Number " << it << std:: endl;
-	}
-	catch (std::exception e) {
-		std::cout << RED << "Not found" << RESET << std:: endl;
-	}
-
-	std::cout << std::endl << "----- not existing number ----- " << std::endl;
-	try{
-		std::iterator it  = easyfind(vector, -347437374);
-		std::cout << "Number " << it << std:: endl;
-	}
-	catch (std::exception e) {
-		std::cout << RED << "Not found" << RESET << std:: endl;
-	}*/
 }
 
 
 int main() {
-
-	arrayTest();
-	//vectorTest();
+	vectorTest();
 
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 11:30:07 by julolle-          #+#    #+#             */
-/*   Updated: 2024/03/08 13:53:10 by julolle-         ###   ########.fr       */
+/*   Updated: 2024/03/11 15:47:56 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ Span & Span::operator=(const Span & src) {
 }
 
 //getters
-std::multiset<int>	Span::getSpan() const {
+std::multiset<int>	Span::getSpan() const{
 	return(_span);
 }
 
@@ -46,16 +46,24 @@ void	Span::addNumber(int nb) {
 	if(this->_span.size() < _size)
 		this->_span.insert(nb);
 	else
-		throw std::exception();
+		throw std::runtime_error("Span is full.");
+}
+
+void	Span::addRangeNumbers() {
+	srand(time(NULL));
+	for (unsigned int i=0; i < _size; i++) {
+		this->_span.insert(rand() % 100000 + 1);
+    }
 }
 
 int	Span::shortestSpan(){
 	if (this->_span.empty() || this->_span.size() < 2)
-		throw std::exception();
+		throw std::runtime_error("Span has less than 2 numbers.");
 
 	std::multiset<int>::iterator it = ++(this->_span.begin());
 	std::multiset<int>::iterator prev = this->_span.begin();
 	int diff = *(--(this->_span.end())) - *it;
+	
 	for (; it != this->_span.end(); it++) {
 		if (*it - *prev < diff)
 			diff = *it - *prev;
@@ -66,7 +74,7 @@ int	Span::shortestSpan(){
 
 int	Span::longestSpan(){
 	if (this->_span.empty() || this->_span.size() < 2)
-		throw std::exception();
+		throw std::runtime_error("Span has less than 2 numbers.");
 	else {
 		std::multiset<int>::iterator first = this->_span.begin();
         std::multiset<int>::iterator last = this->_span.end();
@@ -74,3 +82,9 @@ int	Span::longestSpan(){
 		return (*last - *first);
 	}
 }	
+
+void	Span::printSpan() const {
+	for (std::multiset<int>::const_iterator it = _span.begin(); it != _span.end(); ++it) {
+		std::cout << "number: " << *it << std::endl;
+	}
+}

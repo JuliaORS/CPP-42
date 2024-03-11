@@ -1,47 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Span.hpp                                           :+:      :+:    :+:   */
+/*   MutantStack.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 12:14:40 by julolle-          #+#    #+#             */
-/*   Updated: 2024/03/11 15:46:22 by julolle-         ###   ########.fr       */
+/*   Updated: 2024/03/11 20:03:06 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SPAN_HPP 
-# define SPAN_HPP
+#ifndef MUTANTSTACK_HPP 
+# define MUTANTSTACK_HPP
 
 # include <iostream>
-# include <set>
-# include <stdexcept>
-# include <random>
+# include <stack>
 
 # define RESET "\033[0m"
 # define RED "\033[31m"
 
-class Span {
+template<typename T>
+class MutantStack : public std::stack<T>{
 	
 	public:
-		Span(unsigned int n);
-		Span(const Span & src);
-		~Span();
+		MutantStack();
+		MutantStack(const MutantStack & src);
+		~MutantStack();
 
-		Span&	operator=(const Span & src);
+		MutantStack&	operator=(const MutantStack & src);
 
-		std::multiset<int>	getSpan() const;
-		unsigned int			getSize() const;
-
-		void	addNumber(int nb);
-		void	addRangeNumbers();
-		int		shortestSpan();
-		int		longestSpan();
-		void	printSpan() const;
-
-	private:
-		std::multiset<int>	_span;
-		unsigned int		_size;
+		typedef typename std::stack<T>::container_type::iterator iterator;
+		iterator	begin();
+		iterator	end();
 };
 
 #endif
