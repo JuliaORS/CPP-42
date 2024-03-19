@@ -12,20 +12,20 @@
 
 #include "BitcoinExchange.hpp" 
 
-std::map<std::string, int> saveDatabaseMap(){
+std::map<std::string, double> saveDatabaseMap(){
 	
-	std::ifstream database("data_copy.csv");
+	std::ifstream database("data.csv");
 	if (!database.is_open())
 		throw std::invalid_argument("could not open file.");
 
-	std::map<std::string, int> databaseMap;
+	std::map<std::string, double> databaseMap;
 	std::string	line;
     int index = 0;
 	while (std::getline(database, line)){
 		if (index > 0){
 			size_t posComma = line.find(",");
 			databaseMap.insert(std::make_pair(line.substr(0, line.find(",")), \
-				std::stoi(line.substr(++posComma))));
+				std::stod(line.substr(++posComma))));
 		}
 		index++;
 	}
@@ -33,20 +33,12 @@ std::map<std::string, int> saveDatabaseMap(){
 }
 
 int main(int ac, char **av) {
-	(void)av;
+
 	try{
 		if (ac != 2)
 			throw std::invalid_argument("could not open file.");
-		std::map<std::string, int> databaseMap = saveDatabaseMap();
-
-		//print map
-		std::map<std::string, int>::iterator it;
-    	for (it = databaseMap.begin(); it != databaseMap.end(); ++it) {
-        	std::cout << "hash: " << it->first << " value: " << it->second << std::endl;
-    	}
-		
-		BitcoinExchange bitcoinExchange(av[1]);
-
+		std::map<std::string, double> databaseMap = saveDatabaseMap();
+		BitcoinExchange bitcoinExchange(av[1], databaseMap);
 	}
 	catch (std::invalid_argument e){
 		std::cout << "Error: " << e.what() << std:: endl;
