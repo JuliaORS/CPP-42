@@ -15,18 +15,18 @@ class BitcoinExchange {
 		BitcoinExchange(std::string input, std::map<std::string, double> databaseMap);
 		BitcoinExchange(const BitcoinExchange & src);
 		~BitcoinExchange();
-
 		BitcoinExchange & operator=(const BitcoinExchange & src);
 
+	private:
+		std::map<std::string, double> 	_database;
+		std::string						_input;
+		
 		std::string						getInput() const;	
 		std::map<std::string, double>	getDatabaseMap() const;
 
 		void	showBtcValue();
 		void	searchInDatabaseMap(std::string date, double quantity);
 		
-	private:
-		std::map<std::string, double> 	_database;
-		std::string						_input;
 };
 
 #endif

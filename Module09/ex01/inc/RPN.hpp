@@ -13,12 +13,13 @@ class RPN {
 		~RPN();
 		RPN & operator=(const RPN & src);
 
+	private:
+		std::stack<double>	_st;
+
 		std::stack<double>	getStack() const;
 
 		void	operateStack(std::string input);
-	
-	private:
-		std::stack<double>	_st;
+		
 };
 
 #endif
