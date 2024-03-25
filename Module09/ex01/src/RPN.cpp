@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   RPN.cpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/20 15:20:34 by julolle-          #+#    #+#             */
+/*   Updated: 2024/03/25 12:54:41 by julolle-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "RPN.hpp"
 
@@ -44,12 +55,15 @@ double	executeOperation(double num1, double num2, char op){
 		case '/':
 			return (num1 / num2);
 	}
+	return 0;
 }
 
 //functions
 void	RPN::operateStack(std::string input){
-	int i = 0;
-	while(i < input.length()){
+	size_t i = 0;
+	if (input.size() < 5)
+		throw std::invalid_argument("invalid input.");
+	while(i < input.size()){
 		if (isdigit(input[i])){
 			_st.push(input[i] - '0');
 		}
@@ -61,13 +75,13 @@ void	RPN::operateStack(std::string input){
 			_st.push(executeOperation(num2, num1, input[i]));
 		}
 		else
-			throw std::invalid_argument("invalid input.1");
+			throw std::invalid_argument("invalid input.");
 		i++;
-		if (input[i] != ' ' && i < input.length() - 1)
-			throw std::invalid_argument("invalid input.2");
+		if (input[i] != ' ' && i < input.size() - 1)
+			throw std::invalid_argument("invalid input.");
 		i++;
 	}
 	if (_st.size() > 1)
-		throw std::invalid_argument("invalid input.3");
+		throw std::invalid_argument("invalid input.");
 	std::cout << _st.top() << std::endl;
 }

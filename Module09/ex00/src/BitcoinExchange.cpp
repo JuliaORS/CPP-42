@@ -1,9 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/20 15:20:03 by julolle-          #+#    #+#             */
+/*   Updated: 2024/03/25 12:48:33 by julolle-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 #include <cstring>
 
 BitcoinExchange::BitcoinExchange(std::string input, std::map<std::string, double> \
-	databaseMap) : _input(input) , _database(databaseMap) {
+	databaseMap) :  _database(databaseMap), _input(input) {
 	showBtcValue();
 }
 
@@ -83,6 +94,8 @@ void checkExistingDate(int year, int month, int day){
 std::string	getDate(std::string input){
 
 	std::string line = removeSpacesStartEnd(input);
+	if (line.size() < 14)
+		throw std::out_of_range("bad input.");
 	std::string year = line.substr(0, 4);
 	std::string month = line.substr(5, 2);
 	std::string day = line.substr(8, 2);
@@ -114,8 +127,8 @@ void	BitcoinExchange::searchInDatabaseMap(std::string date, double quantity){
 	std::map<std::string, double>::iterator it = _database.find(date);
 	if (it == _database.end()){
 		if (std::strcmp(date.c_str(), _database.begin()->first.c_str()) < 0){
-			it = this->_database.begin();
-		}
+			throw std::out_of_range("invalid date, too old.");
+		} 
 		else {
 			for (it=this->_database.begin(); it != _database.end(); ++it){
 				if (std::strcmp(it->first.c_str(), date.c_str()) > 0){
@@ -123,6 +136,8 @@ void	BitcoinExchange::searchInDatabaseMap(std::string date, double quantity){
 					break ;
 				}
 			}
+			if (it == _database.end())
+				--it;
 		}
 	}
 	std::cout << date << " => " << quantity << " = " << quantity*it->second \
