@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 11:30:07 by julolle-          #+#    #+#             */
-/*   Updated: 2024/03/20 17:22:59 by julolle-         ###   ########.fr       */
+/*   Updated: 2024/03/25 11:17:20 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	Span::addRangeNumbers() {
 	srand(time(NULL));
 	for (unsigned int i=0; i < _size; i++) {
 		this->_span.insert(rand() % 100000 + 1);
-    }
+	}
 }
 
 unsigned int	Span::shortestSpan(){

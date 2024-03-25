@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 12:14:40 by julolle-          #+#    #+#             */
-/*   Updated: 2024/03/20 17:21:33 by julolle-         ###   ########.fr       */
+/*   Updated: 2024/03/25 11:17:06 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 # include <iostream>
 # include <set>
-# include <stdexcept>
-# include <random>
 
 # define RESET "\033[0m"
 # define RED "\033[31m"
