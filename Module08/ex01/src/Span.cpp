@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 11:30:07 by julolle-          #+#    #+#             */
-/*   Updated: 2024/03/11 15:47:56 by julolle-         ###   ########.fr       */
+/*   Updated: 2024/03/20 17:22:59 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,23 +56,23 @@ void	Span::addRangeNumbers() {
     }
 }
 
-int	Span::shortestSpan(){
+unsigned int	Span::shortestSpan(){
 	if (this->_span.empty() || this->_span.size() < 2)
 		throw std::runtime_error("Span has less than 2 numbers.");
 
 	std::multiset<int>::iterator it = ++(this->_span.begin());
 	std::multiset<int>::iterator prev = this->_span.begin();
-	int diff = *(--(this->_span.end())) - *it;
+	unsigned int diff = *(--(this->_span.end())) - *it;
 	
 	for (; it != this->_span.end(); it++) {
-		if (*it - *prev < diff)
+		if ((unsigned int)(*it - *prev) < diff)
 			diff = *it - *prev;
 		prev++;
 	}
 	return diff;
 }
 
-int	Span::longestSpan(){
+unsigned int	Span::longestSpan(){
 	if (this->_span.empty() || this->_span.size() < 2)
 		throw std::runtime_error("Span has less than 2 numbers.");
 	else {

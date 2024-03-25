@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 12:14:40 by julolle-          #+#    #+#             */
-/*   Updated: 2024/03/11 15:46:22 by julolle-         ###   ########.fr       */
+/*   Updated: 2024/03/20 17:21:33 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,13 @@ class Span {
 
 		Span&	operator=(const Span & src);
 
-		std::multiset<int>	getSpan() const;
+		std::multiset<int>		getSpan() const;
 		unsigned int			getSize() const;
 
 		void	addNumber(int nb);
 		void	addRangeNumbers();
-		int		shortestSpan();
-		int		longestSpan();
+		unsigned int		shortestSpan();
+		unsigned int		longestSpan();
 		void	printSpan() const;
 
 	private:
