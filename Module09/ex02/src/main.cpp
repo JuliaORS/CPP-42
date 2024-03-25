@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 12:11:52 by julolle-          #+#    #+#             */
-/*   Updated: 2024/02/28 12:11:52 by julolle-         ###   ########.fr       */
+/*   Updated: 2024/03/25 14:47:05 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <algorithm>
 
 bool	isStringDigit(const std::string str){
-	for(int i=0; i < str.length(); i++){
+	for(size_t i=0; i < str.size(); i++){
 		if (!isdigit(str[i]))
 			return (false);
 	}
@@ -40,8 +40,6 @@ int main(int ac, char **av) {
 			throw std::invalid_argument("");
 		std::vector<int> input= saveInput(ac, av);
 		PmergeMe pmergeMe(input);
-		pmergeMe.sortVector();
-		pmergeMe.sortList();
 	}
 	catch (std::invalid_argument e){
 		std::cout << "Error: invalid arguments." << std:: endl;

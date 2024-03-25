@@ -1,9 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PmergeMe.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/25 14:49:01 by julolle-          #+#    #+#             */
+/*   Updated: 2024/03/25 15:27:12 by julolle-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "PmergeMe.hpp"
-#include <algorithm> 
+#include <algorithm>
+#include <ctime>
 
 PmergeMe::PmergeMe(std::vector<int> input) : _input(input){
 	createVectJacobsthall();
+	sortVector();
+	sortList();
+	printOutput();
 }
 
 PmergeMe::PmergeMe(const PmergeMe & src){
@@ -69,7 +84,8 @@ void	PmergeMe::createVectJacobsthall(){
 		size = _input.size() / 2;
 	else 
 		size = (_input.size() / 2) + 1;
-	_vectJacobsthall = {0, 1};
+	_vectJacobsthall.push_back(0);
+	_vectJacobsthall.push_back(1);
 	int prev = 1;
 	int prevprev = 0;
 	int nb = 0;
@@ -87,8 +103,20 @@ void	PmergeMe::createVectJacobsthall(){
 	_vectJacobsthall.erase(_vectJacobsthall.begin(), _vectJacobsthall.begin() + 2);
 }
 
+void	PmergeMe::printOutput() {
+	
+	std::cout << "Before: ";
+	printVector(_input);
+	std::cout << "After: ";
+	printVector(_vectFinal);
+	std::cout << "Time to process a range of " << _input.size() << \
+		" elements with std::vector: " << _timeVector << " us" << std::endl;
+	std::cout << "Time to process a range of " << _input.size() << \
+		" elements with std::list: " << _timeList << " us" << std::endl;
+}
+
 //Vector functions
-void PmergeMe::addOnePairSortedVector(int i){
+void PmergeMe::addOnePairSortedVector(unsigned int i){
 	if (i < _input.size() - 1 && _input[i+1] > _input[i]) {
 		_vectInitial.push_back(_input[i+1]);
 		_vectInitial.push_back(_input[i]);
@@ -99,7 +127,7 @@ void PmergeMe::addOnePairSortedVector(int i){
 }	
 
 void	PmergeMe::addPairNumbersSortedVector(){
-	for(int i=0; i < _input.size(); i+=2){
+	for(unsigned int i=0; i < _input.size(); i+=2){
 		if (i < _input.size() - 1){
 			addOnePairSortedVector(i);
 			for(int j=i; j > 0; j-=2){
@@ -115,7 +143,7 @@ void	PmergeMe::addPairNumbersSortedVector(){
 }
 
 void	PmergeMe::splitNumbersIntoVectors(){
-	for (int i=0; i < _vectInitial.size()-1; i+=2){
+	for (unsigned int i=0; i < _vectInitial.size()-1; i+=2){
 		_vectFinal.push_back(_vectInitial[i]);
 		_vectAux.push_back(_vectInitial[i+1]);
 	}
@@ -127,33 +155,20 @@ void	PmergeMe::binaryInsertionVector(int nb){
 	int maxIndex = _vectFinal.size() - 1;
 	int minIndex = 0;
 	while (maxIndex - minIndex > 1){
-		/*if (nb == _vectFinal[maxIndex]){
-			//std::cout << "entra" <<std::endl;
-			break;
-		}
-		if (nb == _vectFinal[minIndex]){
-			minIndex = maxIndex;
-			//std::cout << "entra2" <<std::endl;
-			break;
-		}*/
 		if (nb > _vectFinal[((maxIndex - minIndex)/2 + minIndex)])
 			minIndex = (maxIndex - minIndex)/2 + minIndex;
 		else 
 			maxIndex = maxIndex - ((maxIndex - minIndex)/2);
-		if (maxIndex - minIndex <= 1){
-			if (_vectFinal[minIndex] > nb)
-				maxIndex = minIndex;
-			/*if (nb == _vectFinal[maxIndex] || nb == _vectFinal[minIndex])
-				minIndex = maxIndex;*/
-				break; 
-		}	
 	}
+	if (_vectFinal[minIndex] > nb)
+		maxIndex = minIndex;
+	if (_vectFinal[maxIndex] < nb)
+		maxIndex++;
 	_vectFinal.insert(_vectFinal.begin() + maxIndex, nb);
-
 }
 
 void	PmergeMe::insertSmallNumbersVector(){
-	for (int i=0; i < _vectAux.size(); i++){
+	for (unsigned int i=0; i < _vectAux.size(); i++){
 		int nb;
 		if (i < _vectJacobsthall.size())
 			nb = _vectAux[_vectJacobsthall[i] - 1];
@@ -164,20 +179,16 @@ void	PmergeMe::insertSmallNumbersVector(){
 }
 
 void	PmergeMe::sortVector(){
-	
-	printVector(_input);
-
+	clock_t initTime = clock();
 	addPairNumbersSortedVector();
 	splitNumbersIntoVectors();
 	insertSmallNumbersVector();
-
-	vectorIsSorted(_vectFinal);
-	
-	printVector(_vectFinal);
+	clock_t finalTime = clock();
+	_timeVector = (finalTime - initTime);
 }
 
 //list functions
-void PmergeMe::addOnePairSortedList(int i){
+void PmergeMe::addOnePairSortedList(unsigned int i){
 	if (i < _input.size() - 1 && _input[i+1] > _input[i]) {
 		_lstInitial.push_back(_input[i+1]);
 		_lstInitial.push_back(_input[i]);
@@ -189,7 +200,7 @@ void PmergeMe::addOnePairSortedList(int i){
 
 void	PmergeMe::addPairNumbersSortedList(){
 	
-	for(int i=0; i < _input.size()-1; i+=2){
+	for(unsigned int i=0; i < _input.size()-1; i+=2){
 		addOnePairSortedList(i);
 		std::list<int>::iterator it = std::prev(_lstInitial.end(), 2);
 		while (it != _lstInitial.begin()){
@@ -221,58 +232,43 @@ void	PmergeMe::splitNumbersIntoLists(){
 }
 
 void	PmergeMe::binaryInsertionList(int nb){
-
 	std::list<int>::iterator maxIter = std::prev(_lstFinal.end());
 	std::list<int>::iterator minIter = _lstFinal.begin();
 	int dist = std::distance(minIter, maxIter);
 	while (dist > 1){
-		//std::cout << "numero: " << std::endl;
 		dist = std::distance(minIter, maxIter);
-		//std::cout << "dist " << dist << std::endl;
-		//std::cout << "abans: max " << *maxIter << "min " << *minIter << std::endl;
 		if (nb > *(std::next(minIter, dist/2)))
 			minIter = std::next(minIter, dist/2);
 		else
 			maxIter = std::prev(maxIter, dist/2);
-		//std::cout << "despres: max " << *maxIter << "min " << *minIter << std::endl;
-	
-		if (dist <= 1){
-			if (*minIter > nb)
-				maxIter = _lstFinal.begin();
-		}
-	
 	}
-
+	if (*minIter > nb)
+		maxIter = _lstFinal.begin();
+	if (*maxIter < nb)
+		maxIter = _lstFinal.end();
 	_lstFinal.insert(maxIter, nb);
 }
 
 void	PmergeMe::insertSmallNumbersList(){
-
-	for(int i=0; i < _lstAux.size(); i++){
+	for(unsigned int i=0; i < _lstAux.size(); i++){
 		int nb = 0;
 		if (i < _vectJacobsthall.size()){
 			
 			int index = _vectJacobsthall[i] - 1;
 			nb = *(std::next(_lstAux.begin(), index));
-			//std::cout << "nb " << nb << std::endl;
-
 		}
 		else
 			nb = *(std::next(_lstAux.begin(), i));
 		
 		binaryInsertionList(nb);
 	}
-	//printList(_lstFinal);
 }
 
 void	PmergeMe::sortList(){
-
+	clock_t initTime = clock();
 	addPairNumbersSortedList();
-	//printList(_lstInitial);
 	splitNumbersIntoLists();
-
 	insertSmallNumbersList();
-
-	listIsSorted(_lstFinal);
-	printList(_lstFinal);
+	clock_t finalTime  = clock();;
+	_timeList = (finalTime - initTime);
 }
